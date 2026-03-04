@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Cryo Mongolia — Home</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+
+  <body>
+    <!-- HEADER (shows after scroll) -->
+    <header id="header" class="nav" aria-label="Top navigation">
+      <div class="container">
+        <div class="nav-inner">
+          <a class="brand" href="index.html" aria-label="Cryo Mongolia Home">
+            <span class="mark" aria-hidden="true"></span>
+            <span data-i18n="brand">Cryo Mongolia</span>
+          </a>
+
+          <!-- PAGES (not sections) -->
+          <nav class="links" aria-label="Pages">
+            <a href="index.html" class="active" data-i18n="nav.home">Home</a>
+            <a href="services.html" data-i18n="nav.services">Services</a>
+            <a href="booking.html" data-i18n="nav.booking">Booking</a>
+            <a href="reviews.html" data-i18n="nav.reviews">Reviews</a>
+            <a href="contact.html" data-i18n="nav.contact">Contact</a>
+          </nav>
+
+          <div class="cta">
+            <!-- EN/MN зөвхөн энд -->
+            <div class="lang" aria-label="Language toggle">
+              <button id="btnEN" class="active" type="button">EN</button>
+              <button id="btnMN" type="button">MN</button>
+            </div>
+
+            <a class="btn primary" href="booking.html" data-i18n="cta.book"
+              >Book Now</a
+            >
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- FULL VIDEO HOME -->
+    <main id="top" class="hero hero-home" aria-label="Homepage hero">
+      <div class="hero-video" aria-hidden="true">
+        <video
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+        >
+          <source src="videos/cryomongolia.mp4" type="video/mp4" />
+        </video>
+        <div class="hero-overlay"></div>
+      </div>
+
+      <!-- ONLY welcome text -->
+      <div class="hero-center">
+        <h1 class="welcome" data-i18n="hero.welcome">
+          Welcome to Cryo Mongolia
+        </h1>
+
+        <!-- Optional small hint (remove if you want ultra-minimal) -->
+        <div class="scroll-hint" aria-hidden="true">
+          <span></span>
+        </div>
+      </div>
+    </main>
+    <section class="home-spacer" aria-hidden="true"></section>
+    <script src="index.js"></script>
+  </body>
+</html>

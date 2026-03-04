@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cryo Mongolia — Reviews</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+
+<header id="header" class="nav show" aria-label="Top navigation">
+  <div class="container">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">
+        <span class="mark" aria-hidden="true"></span>
+        <span data-i18n="brand">Cryo Mongolia</span>
+      </a>
+
+      <nav class="links" aria-label="Pages">
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="services.html" data-i18n="nav.services">Services</a>
+        <a href="booking.html" data-i18n="nav.booking">Booking</a>
+        <a href="reviews.html" class="active" data-i18n="nav.reviews">Reviews</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
+      </nav>
+
+      <div class="cta">
+        <div class="lang" aria-label="Language toggle">
+          <button id="btnEN" class="active" type="button">EN</button>
+          <button id="btnMN" type="button">MN</button>
+        </div>
+        <a class="btn primary" href="booking.html" data-i18n="cta.book">Book Now</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="page">
+  <div class="container">
+    <div class="page-hero">
+      <h1 data-i18n="reviews.title">Reviews</h1>
+      <p data-i18n="reviews.desc">Real experiences. Short, believable proof points.</p>
+    </div>
+
+    <div class="quotes">
+      <blockquote><p data-i18n="r.1">“Clean, modern studio. Booking took less than a minute.”</p><footer data-i18n="r.1a">— Client</footer></blockquote>
+      <blockquote><p data-i18n="r.2">“Felt refreshed right after the session. Staff were professional.”</p><footer data-i18n="r.2a">— Client</footer></blockquote>
+      <blockquote><p data-i18n="r.3">“Perfect after gym days. Fast, clean, and consistent.”</p><footer data-i18n="r.3a">— Client</footer></blockquote>
+    </div>
+  </div>
+</main>
+
+<script src="index.js"></script>
+<script>document.getElementById("header")?.classList.add("show");</script>
+</body>
+</html>

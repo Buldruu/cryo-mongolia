@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cryo Mongolia — Booking</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+
+<header id="header" class="nav show" aria-label="Top navigation">
+  <div class="container">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">
+        <span class="mark" aria-hidden="true"></span>
+        <span data-i18n="brand">Cryo Mongolia</span>
+      </a>
+
+      <nav class="links" aria-label="Pages">
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="services.html" data-i18n="nav.services">Services</a>
+        <a href="booking.html" class="active" data-i18n="nav.booking">Booking</a>
+        <a href="reviews.html" data-i18n="nav.reviews">Reviews</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
+      </nav>
+
+      <div class="cta">
+        <div class="lang" aria-label="Language toggle">
+          <button id="btnEN" class="active" type="button">EN</button>
+          <button id="btnMN" type="button">MN</button>
+        </div>
+        <a class="btn primary" href="booking.html" data-i18n="cta.book">Book Now</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="page">
+  <div class="container">
+    <div class="page-hero">
+      <h1 data-i18n="booking.title">Appointment Booking</h1>
+      <p data-i18n="booking.desc">Simple 3-step flow: Select date & time → Choose service → Confirm.</p>
+    </div>
+
+    <div class="grid-2">
+      <!-- LEFT -->
+      <section class="card">
+        <div class="step"><b data-i18n="step.1">Step 1</b><span data-i18n="step.1d">Pick date & time</span></div>
+
+        <!-- Calendar UI -->
+        <div class="field">
+          <div class="label" data-i18n="booking.date">Date</div>
+
+          <div class="cal" id="cal">
+            <div class="cal-top">
+              <div class="cal-title" id="calTitle">—</div>
+              <div class="cal-nav">
+                <button class="iconbtn" id="prevMonth" type="button">‹</button>
+                <button class="iconbtn" id="nextMonth" type="button">›</button>
+              </div>
+            </div>
+
+            <div class="dow">
+              <div>Mo</div><div>Tu</div><div>We</div><div>Th</div><div>Fr</div><div>Sa</div><div>Su</div>
+            </div>
+
+            <div class="days" id="calDays"></div>
+          </div>
+        </div>
+
+        <!-- Slots -->
+        <div class="field">
+          <div class="label" data-i18n="booking.time">Available time</div>
+          <div class="slot-grid" id="slotGrid"></div>
+        </div>
+
+        <hr class="sep" />
+
+        <div class="step"><b data-i18n="step.2">Step 2</b><span data-i18n="step.2d">Choose service</span></div>
+
+        <div class="field">
+          <div class="label" data-i18n="booking.service">Service</div>
+          <select id="serviceSel" style="background-color: rgb(94, 182, 250);">
+            <option value="" data-i18n="select" selected disabled>Select a service</option>
+            <option value="wbc" data-i18n="whole">Whole Body Cryotherapy</option>
+            <option value="loc" data-i18n="localized">Localized Cryotherapy</option>
+            <option value="red" data-i18n="red">Red Light Therapy</option>
+            <option value="comp" data-i18n="compression">Compression Boots</option>
+            <option value="combo" data-i18n="combo">Combo Package</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <div class="label" data-i18n="booking.therapist">Therapist</div>
+          <select id="therapistSel" disabled>
+            <option value="" selected>Select therapist</option>
+          </select>
+        </div>
+      </section>
+
+      <!-- RIGHT -->
+      <aside class="card">
+        <div class="step"><b data-i18n="step.3">Step 3</b><span data-i18n="step.3d">Confirm booking</span></div>
+
+        <div class="field">
+          <div class="label" data-i18n="booking.name">Name</div>
+          <input id="name" class="input" placeholder="Full name" />
+        </div>
+
+        <div class="field">
+          <div class="label" data-i18n="booking.phone">Phone</div>
+          <input id="phone" class="input" placeholder="+976 ..." />
+        </div>
+
+        <div class="field">
+          <div class="label" data-i18n="booking.email">Email</div>
+          <input id="email" class="input" type="email" placeholder="you@email.com" />
+        </div>
+
+        <div class="field">
+          <div class="label" data-i18n="booking.pay">Payment option</div>
+          <div class="pay-row">
+            <label class="radio">
+              <input type="radio" name="pay" value="spa" checked />
+              <span data-i18n="pay.spa">Pay at spa</span>
+            </label>
+            <label class="radio">
+              <input type="radio" name="pay" value="deposit" />
+              <span data-i18n="pay.deposit">Online deposit</span>
+            </label>
+          </div>
+
+          <!-- Deposit box -->
+          <div class="depositBox" id="depositBox">
+            <div class="depositRow">
+              <div>
+                <b id="depAmountLabel">Deposit amount</b>
+                <div class="small" id="depAmountText">—</div>
+                <div class="small" id="bankText">
+                  Bank: Khan Bank • Acc: 5000 0000 0000 • Name: Cryo Mongolia
+                </div>
+              </div>
+
+              <div class="qr" aria-label="QR">
+                <!-- Placeholder QR (replace with real image later) -->
+                <svg width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="6" y="6" width="26" height="26" stroke="rgba(238,242,255,.8)" stroke-width="4"/>
+                  <rect x="58" y="6" width="26" height="26" stroke="rgba(238,242,255,.8)" stroke-width="4"/>
+                  <rect x="6" y="58" width="26" height="26" stroke="rgba(238,242,255,.8)" stroke-width="4"/>
+                  <rect x="40" y="40" width="8" height="8" fill="rgba(56,230,255,.8)"/>
+                  <rect x="52" y="40" width="8" height="8" fill="rgba(56,230,255,.5)"/>
+                  <rect x="40" y="52" width="8" height="8" fill="rgba(56,230,255,.5)"/>
+                  <rect x="64" y="64" width="10" height="10" fill="rgba(56,230,255,.8)"/>
+                </svg>
+              </div>
+            </div>
+            <div class="small" style="margin-top:10px;">
+              Upload payment screenshot after transfer (later we can add upload field).
+            </div>
+          </div>
+        </div>
+
+        <hr class="sep" />
+
+        <div class="meta" id="summary" style="margin-top:0;">
+          <b data-i18n="booking.summary">Summary</b><br/>
+          <span id="sumText" style="color:var(--muted)">—</span>
+        </div>
+
+        <button class="btn primary" id="confirmBtn" style="width:100%; margin-top:12px;" data-i18n="booking.confirm">
+          Confirm Booking
+        </button>
+
+        <div class="meta" id="toast" style="display:none; margin-top:10px;">✅ Confirmed</div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<script src="index.js"></script>
+<script>
+  document.getElementById("header")?.classList.add("show");
+
+  // ===== Data: services -> therapists + deposit amounts =====
+  const SERVICE = {
+    wbc:  { name:"Whole Body Cryotherapy", deposit: 30000, therapists:["Any available","Therapist A","Therapist B"] },
+    loc:  { name:"Localized Cryotherapy",  deposit: 20000, therapists:["Any available","Therapist B","Therapist C"] },
+    red:  { name:"Red Light Therapy",      deposit: 15000, therapists:["Any available","Therapist A"] },
+    comp: { name:"Compression Boots",      deposit: 15000, therapists:["Any available","Therapist C"] },
+    combo:{ name:"Combo Package",          deposit: 40000, therapists:["Any available","Therapist A","Therapist B","Therapist C"] }
+  };
+
+  // ===== Slots baseline =====
+  const ALL_SLOTS = ["09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00"];
+
+  // ===== State =====
+  let selectedDateISO = "";
+  let selectedTime = "";
+  let selectedService = "";
+  let selectedTherapist = "";
+
+  const calTitle = document.getElementById("calTitle");
+  const calDays = document.getElementById("calDays");
+  const prevMonthBtn = document.getElementById("prevMonth");
+  const nextMonthBtn = document.getElementById("nextMonth");
+  const slotGrid = document.getElementById("slotGrid");
+  const serviceSel = document.getElementById("serviceSel");
+  const therapistSel = document.getElementById("therapistSel");
+  const sumText = document.getElementById("sumText");
+  const toast = document.getElementById("toast");
+
+  const depositBox = document.getElementById("depositBox");
+  const depAmountText = document.getElementById("depAmountText");
+
+  // ===== Helpers =====
+  const pad = (n)=>String(n).padStart(2,"0");
+  const toISO = (y,m,d)=>`${y}-${pad(m)}-${pad(d)}`;
+  const today = new Date();
+  const todayISO = toISO(today.getFullYear(), today.getMonth()+1, today.getDate());
+
+  function getBookedMap(){
+    try { return JSON.parse(localStorage.getItem("bookedSlots") || "{}"); }
+    catch { return {}; }
+  }
+  function setBookedMap(map){
+    localStorage.setItem("bookedSlots", JSON.stringify(map));
+  }
+  function bookedForDate(dateISO){
+    const map = getBookedMap();
+    return new Set(map[dateISO] || []);
+  }
+
+  function renderSlots(){
+    slotGrid.innerHTML = "";
+    const booked = bookedForDate(selectedDateISO);
+    ALL_SLOTS.forEach(t=>{
+      const div = document.createElement("div");
+      div.className = "slot";
+      div.textContent = t;
+
+      if(booked.has(t)) div.classList.add("disabled");
+      if(t === selectedTime) div.classList.add("active");
+
+      div.addEventListener("click", ()=>{
+        if(div.classList.contains("disabled")) return;
+        selectedTime = t;
+        document.querySelectorAll(".slot").forEach(s=>s.classList.remove("active"));
+        div.classList.add("active");
+        updateSummary();
+      });
+
+      slotGrid.appendChild(div);
+    });
+  }
+
+  function updateSummary(){
+    const date = selectedDateISO || "—";
+    const time = selectedTime || "—";
+    const service = selectedService ? SERVICE[selectedService]?.name : "—";
+    const therapist = selectedTherapist || "—";
+    sumText.textContent = `${date} • ${time} • ${service} • ${therapist}`;
+  }
+
+  // ===== Calendar (Month grid) =====
+  let viewYear = today.getFullYear();
+  let viewMonth = today.getMonth(); // 0-11
+
+  function monthName(y,m){
+    return new Date(y, m, 1).toLocaleString("en", { month:"long", year:"numeric" });
+  }
+
+  function isPast(dateISO){
+    return dateISO < todayISO;
+  }
+
+  function renderCalendar(){
+    calTitle.textContent = monthName(viewYear, viewMonth);
+    calDays.innerHTML = "";
+
+    const first = new Date(viewYear, viewMonth, 1);
+    const last = new Date(viewYear, viewMonth + 1, 0);
+    const daysInMonth = last.getDate();
+
+    // Monday-first: convert JS day (0=Sun..6=Sat) to Mon=0..Sun=6
+    const jsDay = first.getDay(); // 0..6
+    const offset = (jsDay + 6) % 7; // Mon-first offset
+
+    // previous month fill
+    const prevLast = new Date(viewYear, viewMonth, 0).getDate();
+    for(let i=0;i<offset;i++){
+      const d = document.createElement("div");
+      d.className = "day muted";
+      d.textContent = String(prevLast - offset + 1 + i);
+      calDays.appendChild(d);
+    }
+
+    // current month days
+    for(let day=1; day<=daysInMonth; day++){
+      const iso = toISO(viewYear, viewMonth+1, day);
+      const d = document.createElement("div");
+      d.className = "day";
+      d.textContent = String(day);
+
+      if(isPast(iso)) d.classList.add("disabled");
+      if(iso === selectedDateISO) d.classList.add("active");
+
+      d.addEventListener("click", ()=>{
+        if(d.classList.contains("disabled")) return;
+
+        // set active
+        selectedDateISO = iso;
+        selectedTime = ""; // reset time on date change
+        document.querySelectorAll(".day").forEach(x=>x.classList.remove("active"));
+        d.classList.add("active");
+
+        renderSlots();
+        updateSummary();
+      });
+
+      calDays.appendChild(d);
+    }
+
+    // next month fill to make grid look complete (optional)
+    const totalCells = calDays.children.length;
+    const remain = (7 - (totalCells % 7)) % 7;
+    for(let i=1;i<=remain;i++){
+      const d = document.createElement("div");
+      d.className = "day muted";
+      d.textContent = String(i);
+      calDays.appendChild(d);
+    }
+  }
+
+  prevMonthBtn.addEventListener("click", ()=>{
+    viewMonth--;
+    if(viewMonth < 0){ viewMonth = 11; viewYear--; }
+    renderCalendar();
+  });
+  nextMonthBtn.addEventListener("click", ()=>{
+    viewMonth++;
+    if(viewMonth > 11){ viewMonth = 0; viewYear++; }
+    renderCalendar();
+  });
+
+  // Init selected date = today
+  selectedDateISO = todayISO;
+
+  // ===== Service -> Therapist dynamic =====
+  serviceSel.addEventListener("change", ()=>{
+    selectedService = serviceSel.value;
+    selectedTherapist = "";
+
+    const list = SERVICE[selectedService]?.therapists || [];
+    therapistSel.innerHTML = "";
+    const opt0 = document.createElement("option");
+    opt0.value = "";
+    opt0.textContent = "Select therapist";
+    therapistSel.appendChild(opt0);
+
+    list.forEach(name=>{
+      const o = document.createElement("option");
+      o.value = name;
+      o.textContent = name;
+      therapistSel.appendChild(o);
+    });
+
+    therapistSel.disabled = list.length === 0;
+    updateDepositAmount();
+    updateSummary();
+  });
+
+  therapistSel.addEventListener("change", ()=>{
+    selectedTherapist = therapistSel.value;
+    updateSummary();
+  });
+
+  // ===== Deposit toggle + amount =====
+  function updateDepositAmount(){
+    const dep = selectedService ? SERVICE[selectedService]?.deposit : 0;
+    depAmountText.textContent = dep ? `${dep.toLocaleString()} MNT` : "—";
+  }
+
+  document.querySelectorAll('input[name="pay"]').forEach(r=>{
+    r.addEventListener("change", ()=>{
+      const val = document.querySelector('input[name="pay"]:checked')?.value;
+      if(val === "deposit"){
+        depositBox.classList.add("show");
+        updateDepositAmount();
+      } else {
+        depositBox.classList.remove("show");
+      }
+    });
+  });
+
+  // ===== Confirm -> remove that slot for that date =====
+  document.getElementById("confirmBtn").addEventListener("click", ()=>{
+    // basic validation
+    const name = document.getElementById("name").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const email = document.getElementById("email").value.trim();
+
+    if(!selectedDateISO || !selectedTime){
+      toast.style.display="block";
+      toast.textContent="⚠️ Please select date and time.";
+      return;
+    }
+    if(!selectedService){
+      toast.style.display="block";
+      toast.textContent="⚠️ Please select a service.";
+      return;
+    }
+    if(!name || !phone){
+      toast.style.display="block";
+      toast.textContent="⚠️ Please enter name and phone.";
+      return;
+    }
+
+    // save booked slot
+    const map = getBookedMap();
+    map[selectedDateISO] = map[selectedDateISO] || [];
+    if(!map[selectedDateISO].includes(selectedTime)){
+      map[selectedDateISO].push(selectedTime);
+      setBookedMap(map);
+    }
+
+    // re-render slots (selected time becomes disabled)
+    renderSlots();
+    updateSummary();
+
+    toast.style.display="block";
+    toast.textContent="✅ Confirmed. Your time is reserved.";
+  });
+
+  // ===== Init render =====
+  renderCalendar();
+  renderSlots();
+  updateSummary();
+</script>
+</body>
+</html>

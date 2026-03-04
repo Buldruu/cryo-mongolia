@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cryo Mongolia — Contact</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+
+<header id="header" class="nav show" aria-label="Top navigation">
+  <div class="container">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">
+        <span class="mark" aria-hidden="true"></span>
+        <span data-i18n="brand">Cryo Mongolia</span>
+      </a>
+
+      <nav class="links" aria-label="Pages">
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="services.html" data-i18n="nav.services">Services</a>
+        <a href="booking.html" data-i18n="nav.booking">Booking</a>
+        <a href="reviews.html" data-i18n="nav.reviews">Reviews</a>
+        <a href="contact.html" class="active" data-i18n="nav.contact">Contact</a>
+      </nav>
+
+      <div class="cta">
+        <div class="lang" aria-label="Language toggle">
+          <button id="btnEN" class="active" type="button">EN</button>
+          <button id="btnMN" type="button">MN</button>
+        </div>
+        <a class="btn primary" href="booking.html" data-i18n="cta.book">Book Now</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="page">
+  <div class="container">
+    <div class="page-hero">
+      <h1 data-i18n="contact.title">Contact</h1>
+      <p data-i18n="contact.desc">Find us easily. Call, message, or book online.</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="row"><b data-i18n="contact.name">Cryo Mongolia</b><span class="tag" data-i18n="contact.open">Open 09:00–21:00</span></div>
+        <div class="meta">
+          <span data-i18n="contact.addr">📍 Ulaanbaatar — your address</span><br/>
+          ☎️ <a href="tel:+97600000000">+976 0000 0000</a><br/>
+          ✉️ <a href="mailto:hello@cryomongolia.mn">hello@cryomongolia.mn</a>
+        </div>
+        <div class="row">
+          <a class="btn primary" href="booking.html" data-i18n="cta.book">Book Now</a>
+          <a class="btn" href="tel:+97600000000" data-i18n="contact.call">Call</a>
+        </div>
+      </div>
+
+      <div class="card map">
+        <iframe
+          title="Map"
+          height="360"
+          style="border:0"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Ulaanbaatar&output=embed"></iframe>
+      </div>
+    </div>
+
+    <div class="footer">© <span id="year"></span> Cryo Mongolia. All rights reserved.</div>
+  </div>
+</main>
+
+<script src="index.js"></script>
+<script>
+  document.getElementById("header")?.classList.add("show");
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
