@@ -625,3 +625,26 @@ hr.sep{
   }
 
 }
+@media (max-width: 600px){
+  cta{
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  /* language toggle-ийг жижигрүүлнэ */
+  .lang{
+    padding:4px;
+    gap:6px;
+  }
+  .lang button{
+    padding:6px 8px;
+    font-size:11px;
+  }
+
+  /* Book button давхардахгүй, өөрийн мөр дээр орж болно */
+  .cta .btn.primary{
+    padding:10px 12px;
+    border-radius:14px;
+    width: auto;
+  }
+}
