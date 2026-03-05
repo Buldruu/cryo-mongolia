@@ -562,3 +562,45 @@ hr.sep{
   .card:hover,.btn:hover,.slot:hover,.day:hover{transform:none}
   .scroll-hint span{animation:none}
 }
+/* ===== Mobile hamburger ===== */
+
+.menu-toggle{
+  display:none;
+  font-size:24px;
+  background:none;
+  border:none;
+  color:var(--text);
+  cursor:pointer;
+}
+
+/* mobile */
+@media (max-width:860px){
+
+  .menu-toggle{
+    display:block;
+  }
+
+  .links{
+    position:absolute;
+    top:var(--headerH);
+    left:0;
+    right:0;
+    background:rgba(6,20,38,.96);
+    backdrop-filter: blur(12px);
+
+    flex-direction:column;
+    padding:20px;
+
+    display:none;
+  }
+
+  .links.show{
+    display:flex;
+  }
+
+  .links a{
+    padding:14px;
+    border-bottom:1px solid var(--line);
+  }
+
+}

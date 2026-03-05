@@ -214,3 +214,13 @@ document.addEventListener(
   },
   { once: true },
 );
+// ===== Mobile menu =====
+
+const menuBtn = document.getElementById("menuToggle");
+const navLinks = document.querySelector(".links");
+
+if(menuBtn){
+  menuBtn.addEventListener("click", ()=>{
+    navLinks.classList.toggle("show");
+  });
+}
