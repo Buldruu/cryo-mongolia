@@ -1,226 +1,326 @@
-// ===============
-// Header show on scroll
-// ===============
-const header = document.getElementById("header");
-const showAfter = 140;
+// ── NAV ──
+window.addEventListener("scroll", () => {
+  document.getElementById("navbar").classList.toggle("scrolled", scrollY > 60);
+});
 
-window.addEventListener(
-  "scroll",
-  () => {
-    if (window.scrollY > showAfter) header.classList.add("show");
-    else header.classList.remove("show");
-  },
-  { passive: true },
-);
-
-// ===============
-// i18n (EN/MN) — toggle in HEADER only
-// Applies to header labels + welcome text
-// ===============
-const i18n = {
-  en: {
-    brand: "Cryo Mongolia",
-    "nav.home": "Home",
-    "nav.services": "Services",
-    "nav.booking": "Booking",
-    "nav.reviews": "Reviews",
-    "nav.contact": "Contact",
-    "cta.book": "Book Now",
-    "hero.welcome": "Welcome to Cryo Mongolia",
-    "services.title": "Services",
-    "services.desc":
-      "Choose the therapy that matches your goal — recovery, wellness, or performance.",
-    "tag.recovery": "Recovery",
-    "tag.relief": "Relief",
-    "tag.wellness": "Wellness",
-    "tag.performance": "Performance",
-    "tag.popular": "Popular",
-    "svc.wbc": "Whole Body Cryotherapy",
-    "svc.wbc.d": "Fast cold-air session for recovery and soreness support.",
-    "svc.wbc.t": "⏱ 3–5 min",
-    "svc.loc": "Localized Cryotherapy",
-    "svc.loc.d": "Targeted cold therapy for specific areas.",
-    "svc.loc.t": "⏱ 10 min",
-    "svc.red": "Red Light Therapy",
-    "svc.red.d": "Calming session used for skin and recovery routines.",
-    "svc.red.t": "⏱ 10–20 min",
-    "svc.comp": "Compression Boots",
-    "svc.comp.d": "Rhythmic compression to support circulation and recovery.",
-    "svc.comp.t": "⏱ 20–30 min",
-    "svc.iv": "IV / Wellness Support",
-    "svc.iv.d": "Optional add-ons based on your routine (customize later).",
-    "svc.iv.t": "⏱ 30–45 min",
-    "svc.combo": "Combo Packages",
-    "svc.combo.d": "Stack therapies for better results and better value.",
-    "svc.combo.t": "⏱ 40–60 min",
-
-    "booking.title": "Appointment Booking",
-    "booking.desc":
-      "Simple 3-step flow: Select date & time → Choose service → Confirm.",
-    "step.1": "Step 1",
-    "step.1d": "Pick date & time",
-    "step.2": "Step 2",
-    "step.2d": "Choose service",
-    "step.3": "Step 3",
-    "step.3d": "Confirm booking",
-    "booking.date": "Date",
-    "booking.time": "Available time",
-    "booking.service": "Service",
-    "booking.therapist": "Therapist",
-    "booking.name": "Name",
-    "booking.phone": "Phone",
-    "booking.email": "Email",
-    "booking.pay": "Payment option",
-    "pay.spa": "Pay at spa",
-    "pay.deposit": "Online deposit",
-    "booking.summary": "Summary",
-    "booking.confirm": "Confirm Booking",
-    "select": "Select a service",
-    "whole": "Whole Body Cryotherapy",
-    "localized": "Localized Cryotherapy",
-    "red": "Red Light Therapy",
-    "compression": "Compression Boots",
-    "combo": "Combo Package",
-
-    "reviews.title": "Reviews",
-    "reviews.desc": "Real experiences. Short, believable proof points.",
-    "r.1": "“Clean, modern studio. Booking took less than a minute.”",
-    "r.1a": "— Client",
-    "r.2": "“Felt refreshed right after the session. Staff were professional.”",
-    "r.2a": "— Client",
-    "r.3": "“Perfect after gym days. Fast, clean, and consistent.”",
-    "r.3a": "— Client",
-
-    "contact.title": "Contact",
-    "contact.desc": "Find us easily. Call, message, or book online.",
-    "contact.name": "Cryo Mongolia",
-    "contact.open": "Open 09:00–21:00",
-    "contact.addr": "📍 Ulaanbaatar — your address",
-    "contact.call": "Call",
-  },
-  mn: {
-    brand: "Cryo Mongolia",
-    "nav.home": "Нүүр",
-    "nav.services": "Үйлчилгээ",
-    "nav.booking": "Цаг захиалга",
-    "nav.reviews": "Сэтгэгдэл",
-    "nav.contact": "Холбоо барих",
-    "cta.book": "Цаг авах",
-    "hero.welcome": "Cryo Mongolia-д тавтай морил",
-    "services.title": "Үйлчилгээ",
-    "services.desc":
-      "Өөрийн зорилгодоо тааруулж эмчилгээгээ сонго — сэргэлт, эрүүл мэнд, гүйцэтгэл.",
-    "tag.recovery": "Сэргэлт",
-    "tag.relief": "Намдаалт",
-    "tag.wellness": "Эрүүл мэнд",
-    "tag.performance": "Гүйцэтгэл",
-    "tag.popular": "Эрэлттэй",
-    "svc.wbc": "Бүх биеийн крио",
-    "svc.wbc.d":
-      "Сэргэлт, булчингийн ядаргаа дэмжих богино хүйтэн агаарын сешн.",
-    "svc.wbc.t": "⏱ 3–5 мин",
-    "svc.loc": "Хэсэгчилсэн крио",
-    "svc.loc.d": "Тодорхой хэсэгт чиглэсэн хүйтэн эмчилгээ.",
-    "svc.loc.t": "⏱ 10 мин",
-    "svc.red": "Улаан гэрлийн эмчилгээ",
-    "svc.red.d": "Арьс ба сэргэлтийн routine-д тохирох тайвшруулах сешн.",
-    "svc.red.t": "⏱ 10–20 мин",
-    "svc.comp": "Компрессор гутал",
-    "svc.comp.d": "Цусны эргэлт, сэргэлтийг дэмжих хэмнэлтэй шахалт.",
-    "svc.comp.t": "⏱ 20–30 мин",
-    "svc.iv": "Дэмжих үйлчилгээ",
-    "svc.iv.d": "Routine-дээ тааруулж нэмэлтээр тохируулна (дараа сайжруулна).",
-    "svc.iv.t": "⏱ 30–45 мин",
-    "svc.combo": "Комбо багц",
-    "svc.combo.d": "Үр дүнг сайжруулахын тулд үйлчилгээ хослуулсан багц.",
-    "svc.combo.t": "⏱ 40–60 мин",
-
-    "booking.title": "Цаг захиалга",
-    "booking.desc":
-      "3 алхам: Өдөр/цаг сонгох → Үйлчилгээ сонгох → Баталгаажуулах.",
-    "step.1": "Алхам 1",
-    "step.1d": "Өдөр, цаг сонго",
-    "step.2": "Алхам 2",
-    "step.2d": "Үйлчилгээ сонго",
-    "step.3": "Алхам 3",
-    "step.3d": "Баталгаажуулах",
-    "booking.date": "Огноо",
-    "booking.time": "Боломжит цаг",
-    "booking.service": "Үйлчилгээ",
-    "booking.therapist": "Мэргэжилтэн",
-    "booking.name": "Нэр",
-    "booking.phone": "Утас",
-    "booking.email": "Имэйл",
-    "booking.pay": "Төлбөрийн сонголт",
-    "pay.spa": "Газар дээр төлөх",
-    "pay.deposit": "Онлайнаар урьдчилгаа",
-    "booking.summary": "Товч",
-    "booking.confirm": "Цаг баталгаажуулах",
-    "select": "Үйлчилгээ сонго",
-    "whole": "Бүх биеийн крио",
-    "localized": "Хэсэгчилсэн крио",
-    "red": "Улаан гэрлийн эмчилгээ",
-    "compression": "Компрессор гутал",
-    "combo": "Комбо багц",
-
-    "reviews.title": "Сэтгэгдэл",
-    "reviews.desc": "Бодит туршлага. Богино, үнэмшилтэй.",
-    "r.1": "“Цэвэрхэн, орчин үеийн. Захиалга 1 минут хүрэхгүй болсон.”",
-    "r.1a": "— Үйлчлүүлэгч",
-    "r.2": "“Сешний дараа шууд сэргээд гоё болсон. Ажилтнууд мундаг.”",
-    "r.2a": "— Үйлчлүүлэгч",
-    "r.3": "“Фитнесийн дараа яг тохирдог. Түргэн, цэвэр, тогтвортой.”",
-    "r.3a": "— Үйлчлүүлэгч",
-
-    "contact.title": "Холбоо барих",
-    "contact.desc": "Хаяг, цаг, газрын зураг. Дуудлага/мессеж/онлайн захиалга.",
-    "contact.name": "Cryo Mongolia",
-    "contact.open": "09:00–21:00 ажиллана",
-    "contact.addr": "📍 Улаанбаатар — таны хаяг",
-    "contact.call": "Залгах",
-  },
-};
-
-const btnEN = document.getElementById("btnEN");
-const btnMN = document.getElementById("btnMN");
-
-function applyLang(lang) {
-  document.documentElement.setAttribute("data-lang", lang);
-
-  btnEN.classList.toggle("active", lang === "en");
-  btnMN.classList.toggle("active", lang === "mn");
-
-  document.querySelectorAll("[data-i18n]").forEach((el) => {
-    const key = el.getAttribute("data-i18n");
-    const val = i18n?.[lang]?.[key];
-    if (val) el.textContent = val;
-  });
-
-  localStorage.setItem("lang", lang);
+// ── PARTICLES ──
+const pc = document.getElementById("particles");
+for (let i = 0; i < 30; i++) {
+  const p = document.createElement("div");
+  p.className = "particle";
+  p.style.cssText = `left:${Math.random() * 100}%;width:${Math.random() * 3 + 1}px;height:${Math.random() * 3 + 1}px;animation-duration:${8 + Math.random() * 12}s;animation-delay:${Math.random() * 8}s;`;
+  pc.appendChild(p);
 }
 
-btnEN.addEventListener("click", () => applyLang("en"));
-btnMN.addEventListener("click", () => applyLang("mn"));
+// ── REVEAL ──
+document
+  .querySelectorAll(".reveal")
+  .forEach((r) =>
+    new IntersectionObserver(
+      ([e]) => e.isIntersecting && r.classList.add("visible"),
+      { threshold: 0.1 },
+    ).observe(r),
+  );
 
-// Load saved language
-applyLang(localStorage.getItem("lang") || "en");
-const video = document.getElementById("heroVideo");
-
-document.addEventListener(
-  "click",
-  () => {
-    video.muted = false;
-    video.play();
-  },
-  { once: true },
-);
-// ===== Mobile menu =====
-
-const menuBtn = document.getElementById("menuToggle");
-const navLinks = document.querySelector(".links");
-
-if(menuBtn){
-  menuBtn.addEventListener("click", ()=>{
-    navLinks.classList.toggle("show");
+// ── COUNTERS ──
+function animateCounters() {
+  document.querySelectorAll(".stat-num[data-target]").forEach((el) => {
+    const target = +el.dataset.target;
+    const unit = el.querySelector(".stat-unit")?.outerHTML || "";
+    let cur = 0;
+    const step = target / 60;
+    const t = setInterval(() => {
+      cur = Math.min(cur + step, target);
+      el.innerHTML = Math.floor(cur) + unit;
+      if (cur >= target) clearInterval(t);
+    }, 20);
   });
+}
+new IntersectionObserver(
+  ([e]) => {
+    if (e.isIntersecting) {
+      animateCounters();
+    }
+  },
+  { threshold: 0.3 },
+).observe(document.querySelector(".stats"));
+
+// ── TREATMENTS ──
+function filterTreatments(cat, btn) {
+  document
+    .querySelectorAll(".tab-btn")
+    .forEach((b) => b.classList.remove("active"));
+  btn.classList.add("active");
+  document
+    .querySelectorAll(".treatment-card")
+    .forEach((c) =>
+      c.classList.toggle("active-card", cat === "all" || c.dataset.cat === cat),
+    );
+}
+
+// ── MOBILE MENU ──
+function toggleMenu() {
+  document.getElementById("mobileMenu").classList.toggle("open");
+}
+
+// ════════════════════════════════════════
+//  BOOKING SYSTEM
+// ════════════════════════════════════════
+const TIMES = [
+  "09:00",
+  "10:00",
+  "11:00",
+  "12:00",
+  "13:00",
+  "14:00",
+  "15:00",
+  "16:00",
+  "17:00",
+  "18:00",
+  "19:00",
+  "20:00",
+];
+const WD = ["Ням", "Дав", "Мяг", "Лха", "Пүр", "Баа", "Бям"];
+const MONTHS = [
+  "1-р сар",
+  "2-р сар",
+  "3-р сар",
+  "4-р сар",
+  "5-р сар",
+  "6-р сар",
+  "7-р сар",
+  "8-р сар",
+  "9-р сар",
+  "10-р сар",
+  "11-р сар",
+  "12-р сар",
+];
+
+const bookedMap = {}; // dateKey -> [booked times]
+function getBooked(key) {
+  if (!bookedMap[key]) {
+    const arr = [];
+    const n = 2 + Math.floor(Math.random() * 3);
+    while (arr.length < n) {
+      const t = TIMES[Math.floor(Math.random() * TIMES.length)];
+      if (!arr.includes(t)) arr.push(t);
+    }
+    bookedMap[key] = arr;
+  }
+  return bookedMap[key];
+}
+
+let bk = { dateKey: "", time: "", bank: "", bankName: "" };
+let dateOffset = 0; // index of first visible date (0 = tomorrow)
+const DATE_SHOW = 7;
+let qrInterval = null;
+
+function dateFromOffset(n) {
+  const d = new Date();
+  d.setHours(0, 0, 0, 0);
+  d.setDate(d.getDate() + n + 1); // +1 = start from tomorrow
+  return d;
+}
+function fmtKey(d) {
+  return d.toISOString().split("T")[0];
+}
+
+// Build date tabs
+function buildDateTabs() {
+  const tabs = document.getElementById("dateTabs");
+  tabs.innerHTML = "";
+  for (let i = 0; i < DATE_SHOW; i++) {
+    const d = dateFromOffset(dateOffset + i);
+    const key = fmtKey(d);
+    const tab = document.createElement("div");
+    tab.className = "date-tab" + (key === bk.dateKey ? " selected" : "");
+    tab.innerHTML =
+      `<div class="dt-wd">${WD[d.getDay()]}</div>` +
+      `<div class="dt-d">${d.getDate()}</div>` +
+      `<div class="dt-m">${d.getMonth() + 1}-р</div>`;
+    tab.onclick = () => pickDate(key, tab);
+    tabs.appendChild(tab);
+  }
+  document.getElementById("datePrevBtn").disabled = dateOffset === 0;
+}
+
+function shiftDates(dir) {
+  dateOffset = Math.max(0, dateOffset + dir * DATE_SHOW);
+  buildDateTabs();
+}
+
+function pickDate(key, el) {
+  bk.dateKey = key;
+  bk.time = "";
+  document
+    .querySelectorAll(".date-tab")
+    .forEach((t) => t.classList.remove("selected"));
+  el.classList.add("selected");
+  buildTimeGrid();
+}
+
+function buildTimeGrid() {
+  const grid = document.getElementById("timeGrid");
+  grid.innerHTML = "";
+  const booked = bk.dateKey ? getBooked(bk.dateKey) : [];
+  TIMES.forEach((t) => {
+    const s = document.createElement("div");
+    const b = booked.includes(t);
+    s.className =
+      "time-slot" + (b ? " booked" : "") + (t === bk.time ? " selected" : "");
+    s.textContent = t;
+    if (!b) s.onclick = () => pickTime(t, s);
+    grid.appendChild(s);
+  });
+}
+
+function pickTime(t, el) {
+  bk.time = t;
+  document
+    .querySelectorAll(".time-slot")
+    .forEach((s) => s.classList.remove("selected"));
+  el.classList.add("selected");
+}
+
+// ── Step nav ──
+function setStepDots(active) {
+  [1, 2, 3].forEach((i) => {
+    const dot = document.getElementById("dot" + i);
+    const line = document.getElementById("line" + i);
+    dot.className =
+      "step-dot" + (i < active ? " done" : i === active ? " active" : "");
+    if (line) line.className = "step-line" + (i < active ? " done" : "");
+  });
+}
+
+function showPanel(id) {
+  ["step1", "step2", "step2b", "step3"].forEach((p) => {
+    const el = document.getElementById(p);
+    if (el) el.classList.remove("active");
+  });
+  document.getElementById(id).classList.add("active");
+}
+
+function goStepNum(n) {
+  setStepDots(n);
+  showPanel("step" + n);
+}
+
+function goStep2() {
+  const name = document.getElementById("b_name").value.trim();
+  const phone = document.getElementById("b_phone").value.trim();
+  if (!name) {
+    alert("Нэрээ оруулна уу.");
+    return;
+  }
+  if (!phone) {
+    alert("Утасны дугаараа оруулна уу.");
+    return;
+  }
+  if (!bk.dateKey) {
+    alert("Огноо сонгоно уу.");
+    return;
+  }
+  if (!bk.time) {
+    alert("Цаг сонгоно уу.");
+    return;
+  }
+
+  // Fill summary
+  const d = new Date(bk.dateKey);
+  const dateLabel = `${d.getFullYear()}.${d.getMonth() + 1}.${d.getDate()} (${WD[d.getDay()]})`;
+  document.getElementById("sum_date").textContent = dateLabel;
+  document.getElementById("sum_time").textContent = bk.time;
+
+  setStepDots(2);
+  showPanel("step2");
+}
+
+function selectBank(el, id, name) {
+  document
+    .querySelectorAll(".bank-btn")
+    .forEach((b) => b.classList.remove("selected"));
+  el.classList.add("selected");
+  bk.bank = id;
+  bk.bankName = name;
+}
+
+function showQR() {
+  if (!bk.bank) {
+    alert("Банкаа сонгоно уу.");
+    return;
+  }
+  // Mark slot as booked
+  if (!bookedMap[bk.dateKey]) bookedMap[bk.dateKey] = [];
+  if (!bookedMap[bk.dateKey].includes(bk.time))
+    bookedMap[bk.dateKey].push(bk.time);
+
+  document.getElementById("qrBankName").textContent =
+    bk.bankName.toUpperCase() + " — QPAY";
+  setStepDots(2);
+  showPanel("step2b");
+  startTimer();
+
+  // Simulate payment in 6s
+  setTimeout(() => {
+    if (document.getElementById("step2b").classList.contains("active"))
+      doConfirm();
+  }, 6000);
+}
+
+function startTimer() {
+  if (qrInterval) clearInterval(qrInterval);
+  let s = 599;
+  const el = document.getElementById("qrTimer");
+  el.textContent = "09:59";
+  qrInterval = setInterval(() => {
+    if (--s <= 0) {
+      clearInterval(qrInterval);
+      el.textContent = "00:00";
+      return;
+    }
+    el.textContent =
+      String(Math.floor(s / 60)).padStart(2, "0") +
+      ":" +
+      String(s % 60).padStart(2, "0");
+  }, 1000);
+}
+
+function doConfirm() {
+  if (qrInterval) clearInterval(qrInterval);
+  const ref = "CRYO-" + (1000 + Math.floor(Math.random() * 9000));
+  document.getElementById("bookingRef").textContent = ref;
+  const name = document.getElementById("b_name").value;
+  const phone = document.getElementById("b_phone").value;
+  const d = new Date(bk.dateKey);
+  const dl = `${d.getFullYear()}.${d.getMonth() + 1}.${d.getDate()} (${WD[d.getDay()]})`;
+  document.getElementById("confirmDetails").innerHTML =
+    `👤 <b style="color:var(--frost)">${name}</b> &nbsp;·&nbsp; ${phone}<br>` +
+    `📅 ${dl} &nbsp;⏰ ${bk.time}<br>` +
+    `<span style="color:var(--accent);font-size:12px;">✓ ₮100,000 — ${bk.bankName}</span>`;
+  setStepDots(3);
+  showPanel("step3");
+}
+
+// ── Modal ──
+function openModal() {
+  bk = { dateKey: "", time: "", bank: "", bankName: "" };
+  dateOffset = 0;
+  buildDateTabs();
+  buildTimeGrid();
+  document
+    .querySelectorAll(".bank-btn")
+    .forEach((b) => b.classList.remove("selected"));
+  document.getElementById("b_name").value = "";
+  document.getElementById("b_phone").value = "";
+  setStepDots(1);
+  showPanel("step1");
+  document.getElementById("modalOverlay").classList.add("open");
+}
+function closeModal() {
+  if (qrInterval) clearInterval(qrInterval);
+  document.getElementById("modalOverlay").classList.remove("open");
+}
+function closeModalOnBg(e) {
+  if (e.target === document.getElementById("modalOverlay")) closeModal();
 }
