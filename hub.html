@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Төхөөрөмжүүд — °CRYO Mongolia</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="shared.css"/>
+<style>
+.hero-hub{min-height:100vh;display:flex;align-items:center;padding-top:64px;position:relative;overflow:hidden;background:var(--bg-page)}
+.hero-hub::before{content:'';position:absolute;top:-80px;right:-100px;width:560px;height:560px;background:radial-gradient(circle,rgba(31,107,94,.08) 0%,transparent 70%);pointer-events:none}
+.hero-hub::after{content:'';position:absolute;bottom:-60px;left:-60px;width:360px;height:360px;background:radial-gradient(circle,rgba(184,113,46,.06) 0%,transparent 70%);pointer-events:none}
+.hub-inner{padding:0 64px;position:relative;z-index:1;width:100%}
+.hub-chip{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;background:var(--accent-soft);color:var(--accent);font-size:11px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;border-radius:99px;margin-bottom:22px}
+.hub-chip::before{content:'';width:6px;height:6px;background:var(--accent-mid);border-radius:50%}
+.hub-title{font-family:var(--ff-display);font-size:clamp(44px,7vw,96px);font-weight:600;line-height:1.02;letter-spacing:-.5px;margin-bottom:20px}
+.hub-title .accent{color:var(--accent)}
+.hub-sub{font-family:var(--ff-display);font-size:19px;font-weight:400;font-style:italic;color:var(--text-secondary);max-width:560px;line-height:1.6;margin-bottom:0}
+
+/* Stats bar */
+.stats-bar{padding:48px 64px;background:linear-gradient(135deg,#e8f5f2 0%,#f0ede6 100%);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.stats-inner{display:grid;grid-template-columns:repeat(4,1fr);max-width:860px;margin:0 auto}
+.sstat{text-align:center;padding:16px;border-right:1px solid rgba(31,107,94,.12)}
+.sstat:last-child{border:none}
+.sstat-num{font-family:var(--ff-display);font-size:44px;font-weight:600;color:var(--accent);line-height:1;display:block}
+.sstat-unit{font-size:.45em;color:var(--gold)}
+.sstat-label{font-size:10px;font-weight:600;letter-spacing:1.5px;color:var(--text-muted);text-transform:uppercase;margin-top:6px}
+
+/* Device grid */
+.devices-section{padding:80px 64px}
+.dg-header{text-align:center;margin-bottom:56px}
+.dg-chip{display:inline-block;padding:5px 14px;background:var(--accent-soft);color:var(--accent);font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;border-radius:99px;margin-bottom:14px}
+.dg-title{font-family:var(--ff-display);font-size:clamp(28px,4vw,52px);font-weight:600;line-height:1.1;letter-spacing:-.3px}
+.device-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;max-width:920px;margin:0 auto}
+.device-card{background:var(--bg-card);border:1.5px solid var(--border);border-radius:var(--r-xl);overflow:hidden;text-decoration:none;transition:all var(--ease);display:flex;flex-direction:column}
+.device-card:hover{border-color:rgba(31,107,94,.35);transform:translateY(-5px);box-shadow:0 14px 44px rgba(42,31,26,.1)}
+.dc-visual{height:200px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.dc-visual.v1{background:linear-gradient(135deg,#e8f5f2,#d4ede8)}
+.dc-visual.v2{background:linear-gradient(135deg,#fde8e8,#f9d0d0)}
+.dc-visual.v3{background:linear-gradient(135deg,#e4eeff,#ccdcf8)}
+.dc-visual.v4{background:linear-gradient(135deg,#f0e8ff,#e0d0f8)}
+.dc-icon{font-size:70px;opacity:.35;transition:all var(--ease)}
+.device-card:hover .dc-icon{opacity:.55;transform:scale(1.1)}
+.dc-badge{position:absolute;top:14px;right:14px;padding:4px 12px;border-radius:99px;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase}
+.dc-badge.b1{background:rgba(31,107,94,.15);color:var(--accent);border:1px solid rgba(31,107,94,.25)}
+.dc-badge.b2{background:rgba(224,82,82,.12);color:#c03030;border:1px solid rgba(224,82,82,.2)}
+.dc-badge.b3{background:rgba(56,120,220,.12);color:#1a5bb8;border:1px solid rgba(56,120,220,.2)}
+.dc-badge.b4{background:rgba(120,60,200,.12);color:#6030b0;border:1px solid rgba(120,60,200,.2)}
+.dc-body{padding:22px 26px 26px;flex:1;display:flex;flex-direction:column}
+.dc-num{font-size:10px;font-weight:600;letter-spacing:2px;color:var(--text-muted);text-transform:uppercase;margin-bottom:5px}
+.dc-title{font-family:var(--ff-display);font-size:28px;font-weight:600;margin-bottom:7px;line-height:1.1}
+.dc-sub{font-size:13px;color:var(--text-secondary);line-height:1.55;margin-bottom:14px}
+.dc-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px}
+.dc-tag{padding:3px 10px;font-size:10px;font-weight:600;border:1.5px solid var(--border);border-radius:99px;color:var(--text-muted);letter-spacing:.5px}
+.dc-arrow{margin-top:auto;font-size:12px;font-weight:500;color:var(--accent);display:flex;align-items:center;gap:6px;transition:gap var(--ease)}
+.device-card:hover .dc-arrow{gap:12px}
+
+/* Footer */
+.hub-footer{background:var(--text-primary);color:rgba(255,255,255,.5);padding:32px 64px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.hub-footer p{font-size:12px}
+.hub-footer .fl{font-family:var(--ff-display);font-size:18px;font-weight:600;color:#fff}
+.hub-footer .fl span{color:var(--accent-mid)}
+
+@media(max-width:900px){
+  .topnav{padding:0 24px}
+  .hub-inner,.devices-section,.stats-bar{padding-left:24px;padding-right:24px}
+  .device-grid{grid-template-columns:1fr}
+  .stats-inner{grid-template-columns:repeat(2,1fr)}
+  .sstat{border-right:none;border-bottom:1px solid rgba(31,107,94,.1)}
+  .hub-footer{padding:24px;flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html" class="back-btn">Үндсэн хуудас</a>
+  <a href="index.html" class="nav-logo">°CRYO <span>Mongolia</span></a>
+</nav>
+
+<section class="hero-hub">
+  <div class="hub-inner">
+    <div class="hub-chip">CTN.FI Recovery Technologies</div>
+    <h1 class="hub-title">Манай<br><span class="accent">Төхөөрөмжүүд</span></h1>
+    <p class="hub-sub">Дэлхийн тэргүүлэгч CTN.FI компанийн дэвшилтэт технологиудыг Монголд анх удаа нэвтрүүлж байна.</p>
+  </div>
+</section>
+
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="sstat"><span class="sstat-num">4<span class="sstat-unit">+</span></span><div class="sstat-label">Дэвшилтэт төхөөрөмж</div></div>
+    <div class="sstat"><span class="sstat-num">−140<span class="sstat-unit">°C</span></span><div class="sstat-label">Хамгийн хүйтэн</div></div>
+    <div class="sstat"><span class="sstat-num">28K<span class="sstat-unit">+</span></span><div class="sstat-label">LED — LedPro</div></div>
+    <div class="sstat"><span class="sstat-num">100<span class="sstat-unit">%</span></span><div class="sstat-label">Аюулгүй</div></div>
+  </div>
+</div>
+
+<section class="devices-section">
+  <div class="dg-header reveal">
+    <div class="dg-chip">Дэлгэрэнгүй мэдээлэл</div>
+    <h2 class="dg-title">Төхөөрөмж сонгох</h2>
+  </div>
+  <div class="device-grid reveal">
+    <a href="cabin.html" class="device-card">
+      <div class="dc-visual v1"><span class="dc-icon">🧊</span><span class="dc-badge b1">Бүхэл бие</span></div>
+      <div class="dc-body">
+        <div class="dc-num">01 — Cryo°CabinTM</div>
+        <div class="dc-title">Крио Кабин</div>
+        <div class="dc-sub">Бүхэл биеийн хүйтний эмчилгээ — шингэн азотаар −140°C хүртэл</div>
+        <div class="dc-tags"><span class="dc-tag">Криотерапи</span><span class="dc-tag">3 минут</span><span class="dc-tag">−140°C</span></div>
+        <div class="dc-arrow">Дэлгэрэнгүй үзэх →</div>
+      </div>
+    </a>
+    <a href="ledpro.html" class="device-card">
+      <div class="dc-visual v2"><span class="dc-icon">🔴</span><span class="dc-badge b2">Улаан гэрэл</span></div>
+      <div class="dc-body">
+        <div class="dc-num">02 — CTN LedPro™</div>
+        <div class="dc-title">LedPro</div>
+        <div class="dc-sub">Улаан болон инфра улаан гэрлийн эмчилгээ — 28,515 LED</div>
+        <div class="dc-tags"><span class="dc-tag">28,515 LED</span><span class="dc-tag">15 минут</span><span class="dc-tag">NIR</span></div>
+        <div class="dc-arrow">Дэлгэрэнгүй үзэх →</div>
+      </div>
+    </a>
+    <a href="oxypro.html" class="device-card">
+      <div class="dc-visual v3"><span class="dc-icon">💨</span><span class="dc-badge b3">Хүчилтөрөгч</span></div>
+      <div class="dc-body">
+        <div class="dc-num">03 — CTN OxyPro™</div>
+        <div class="dc-title">OxyPro</div>
+        <div class="dc-sub">Өндөр даралттай хүчилтөрөгчийн эмчилгээ — 1.4 ATA</div>
+        <div class="dc-tags"><span class="dc-tag">1.4 ATA</span><span class="dc-tag">1–2 цаг</span><span class="dc-tag">HBOT</span></div>
+        <div class="dc-arrow">Дэлгэрэнгүй үзэх →</div>
+      </div>
+    </a>
+    <a href="xcryo.html" class="device-card">
+      <div class="dc-visual v4"><span class="dc-icon">🎯</span><span class="dc-badge b4">Локал крио</span></div>
+      <div class="dc-body">
+        <div class="dc-num">04 — X°CRYO™</div>
+        <div class="dc-title">X°CRYO</div>
+        <div class="dc-sub">Биеийн тодорхой хэсгийн локал криотерапи — 1–3 минут</div>
+        <div class="dc-tags"><span class="dc-tag">1–3 минут</span><span class="dc-tag">Локал</span><span class="dc-tag">Цахилгаан</span></div>
+        <div class="dc-arrow">Дэлгэрэнгүй үзэх →</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<div class="hub-footer">
+  <div class="fl">°CRYO <span>Mongolia</span></div>
+  <p>© 2025 °CRYO Mongolia · CTN.FI Recovery Technologies</p>
+  <p>Улаанбаатар хот · info@cryomongolia.mn</p>
+</div>
+
+<script>
+document.querySelectorAll('.reveal').forEach(r=>
+  new IntersectionObserver(([e])=>e.isIntersecting&&r.classList.add('visible'),{threshold:.1}).observe(r)
+);
+</script>
+</body>
+</html>
