@@ -5,6 +5,16 @@
 <title>X°CRYO™ — °CRYO Mongolia</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="shared.css"/>
+<style>
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@media(max-width:900px){.hero-img-wrap{display:none}}
+.treatment-table-wrap{overflow-x:auto;border-radius:var(--r-lg);border:1.5px solid var(--border)}
+.treatment-table{width:100%;border-collapse:collapse;font-size:12px}
+.treatment-table th{background:var(--accent-soft);padding:10px 14px;text-align:left;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);font-weight:600}
+.treatment-table td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text-secondary)}
+.treatment-table tr:last-child td{border:none}
+.treatment-table tr:hover td{background:rgba(31,107,94,.03)}
+</style>
 </head>
 <body>
 <nav class="topnav">
@@ -12,15 +22,15 @@
   <a href="hub.html" class="nav-logo">°CRYO <span>Mongolia</span></a>
 </nav>
 
+<!-- HERO — img-xcryo-1.png (real photo with mask) -->
 <div class="dev-hero">
+  <div class="hero-img-wrap" style="position:absolute;right:64px;top:50%;transform:translateY(-50%);z-index:2;opacity:0;animation:fadeIn 1s .7s forwards;">
+    <img src="img-xcryo-1.png" alt="X°CRYO" style="height:420px;width:auto;object-fit:contain;filter:drop-shadow(0 20px 44px rgba(42,31,26,.12));">
+  </div>
   <div class="hero-label">Локал криотерапи</div>
   <div class="hero-tag">X°CRYO™ — Localised Cryotherapy Device</div>
   <h1 class="dev-title">X°<br><span class="accent">CRYO</span></h1>
   <p class="dev-subtitle">100% цахилгаанаар ажилладаг локал криотерапийн төхөөрөмж. Арьс, үе, булчингийн хөргөлтөд 1–3 минутад үр дүнтэй эмчилгээ.</p>
-  
-<div style="position:absolute;right:64px;top:50%;transform:translateY(-50%);z-index:2;opacity:0;animation:fadeIn 1s .8s forwards;">
-  <img src="img-xcryo-1.png" alt="X°CRYO" style="height:380px;width:auto;object-fit:contain;filter:drop-shadow(0 20px 40px rgba(42,31,26,.12));">
-</div>
   <div class="hero-badges">
     <div class="hero-badge"><span class="hb-num">1–3 мин</span><div class="hb-label">Эмчилгээний хугацаа</div></div>
     <div class="hero-badge"><span class="hb-num">100%</span><div class="hb-label">Цахилгаанаар</div></div>
@@ -29,6 +39,7 @@
   </div>
 </div>
 
+<!-- ЯАЖ АЖИЛЛАДАГ -->
 <section class="section alt">
   <div class="sec-label">Технологи</div>
   <h2 class="sec-title reveal">Хэрхэн ажилладаг вэ?</h2>
@@ -40,6 +51,7 @@
   </div>
 </section>
 
+<!-- ЭМЧИЛГЭЭНИЙ ХОШУУНУУД + img-xcryo-2.png (diagram) -->
 <section class="section">
   <div class="sec-label">Хэрэгсэл</div>
   <h2 class="sec-title reveal">Эмчилгээний хошуунууд</h2>
@@ -54,12 +66,14 @@
     <div class="app-card"><div class="app-icon">🔳</div><div class="app-name">Cryosleeve</div><div class="app-desc">Тохой, өвдөгт</div></div>
     <div class="app-card"><div class="app-icon">💊</div><div class="app-name">CTN Boosters</div><div class="app-desc">Крио шингэн</div></div>
   </div>
-
-  <div style="margin-top:28px;border-radius:var(--r-xl);overflow:hidden;border:1.5px solid var(--border);background:#fff;">
-    <img src="img-xcryo-2.png" alt="X°CRYO diagram" style="width:100%;display:block;object-fit:contain;max-height:340px;padding:16px;">
+  <!-- img-xcryo-2.png: component diagram -->
+  <div style="margin-top:28px;border-radius:var(--r-xl);overflow:hidden;border:1.5px solid var(--border);background:#fff;" class="reveal">
+    <img src="img-xcryo-2.png" alt="X°CRYO diagram" style="width:100%;display:block;object-fit:contain;max-height:360px;padding:16px;">
   </div>
+  <p style="font-size:11px;color:var(--text-muted);text-align:center;margin-top:8px;letter-spacing:.5px;">X°CRYO™ — Эд ангиудын тайлбар · CTN.FI</p>
 </section>
 
+<!-- ХУРДАН ЗААВАР - ХҮСНЭГТ -->
 <section class="section alt">
   <div class="sec-label">Хурдан заавар</div>
   <h2 class="sec-title reveal">Биеийн хэсгийн эмчилгээ</h2>
@@ -85,6 +99,7 @@
   <p style="font-size:11px;color:var(--text-muted);margin-top:10px;">* Агаарын хурд болон хугацааг үйлчлүүлэгчийн хүйтэнд тэсвэрлэх чадварын дагуу тохируулна. Хамгийн их 3 минут.</p>
 </section>
 
+<!-- АШИГ ТУС -->
 <section class="section">
   <div class="sec-label">Ашиг тус</div>
   <h2 class="sec-title reveal">X°CRYO-ийн давуу тал</h2>
@@ -100,6 +115,7 @@
   </div>
 </section>
 
+<!-- ХОРИГЛОХ ЗААЛТ -->
 <section class="section alt">
   <div class="sec-label">Аюулгүй байдал</div>
   <h2 class="sec-title reveal">Хэрэглэж болохгүй заалтууд</h2>
@@ -120,7 +136,7 @@
       <div class="contra-title">⚠ Анхааруулга</div>
       <ul class="contra-list">
         <li>Нэг сессэд хамгийн их 3 минут</li>
-        <li>Нэмэгдсэн таагүй мэдрэмж, цэврүү гарвал даруй зогсоо</li>
+        <li>Нэмэгдсэн таагүй мэдрэмж гарвал даруй зогсоо</li>
         <li>Өрөөний чийгшлийг 50%-иас доош байлгана</li>
         <li>Хошуунуудыг тогтмол ариутгана</li>
         <li>Шинэ сессийн өмнө арьс хэвийн температурт хүрэхийг хүлээ</li>
@@ -129,13 +145,14 @@
   </div>
 </section>
 
+<!-- ХЭРЭГЛЭХ ЗААВАР + SPECS -->
 <section class="section">
   <div class="two-col">
     <div>
       <div class="sec-label">Хэрэглэх заавар</div>
       <h2 class="sec-title reveal">Төхөөрөмж ажиллуулах</h2>
       <div class="howto-steps reveal">
-        <div class="howto-step"><div class="hs-num">1</div><div class="hs-content"><h4>Урьдчилан хөргөх</h4><p>Төхөөрөмжийг асаана. Урьдчилан хөргөх процесс автоматаар эхэлж 3–5 минут үргэлжилнэ. Дэлгэц дээр харагдана.</p></div></div>
+        <div class="howto-step"><div class="hs-num">1</div><div class="hs-content"><h4>Урьдчилан хөргөх</h4><p>Төхөөрөмжийг асаана. Урьдчилан хөргөх процесс автоматаар эхэлж 3–5 минут үргэлжилнэ.</p></div></div>
         <div class="howto-step"><div class="hs-num">2</div><div class="hs-content"><h4>Програм сонгох</h4><p>Операторын дэлгэцээс FACE (2 мин), SPOT (1 мин), эсвэл PRO (3 мин) програмын аль нэгийг сонгоно.</p></div></div>
         <div class="howto-step"><div class="hs-num">3</div><div class="hs-content"><h4>Хошуу солих</h4><p>Биеийн хэсгийн дагуу тохирсон хошууг суулгана. Дээрх хүснэгтийн заавар ашиглана.</p></div></div>
         <div class="howto-step"><div class="hs-num">4</div><div class="hs-content"><h4>Эмчилгээ хийх</h4><p>Хошууг эмчлэгдэх хэсэгт байрлуулна. Агаарын урсгалын хурдыг тохируулж эмчилгээ эхлүүлнэ.</p></div></div>
@@ -144,8 +161,9 @@
       </div>
     </div>
     <div class="reveal">
+      <img src="img-xcryo-1.png" alt="X°CRYO" style="width:100%;display:block;border-radius:var(--r-xl);border:1.5px solid var(--border);object-fit:contain;background:var(--bg-subtle);padding:16px;max-height:260px;margin-bottom:24px;">
+      <p style="font-size:11px;color:var(--text-muted);text-align:center;margin-bottom:24px;letter-spacing:.5px;">X°CRYO™ — CTN.FI Recovery Technologies</p>
       <div class="sec-label">Техникийн үзүүлэлт</div>
-      <h3 style="font-family:var(--ff-display);font-size:28px;font-weight:600;margin-bottom:18px;">Үзүүлэлтүүд</h3>
       <table class="spec-table">
         <tr><td>Бүтээгдэхүүний нэр</td><td>X°CRYO™</td></tr>
         <tr><td>Дэлгэц</td><td>8" Touchscreen</td></tr>
@@ -155,19 +173,10 @@
         <tr><td>Цахилгаан хүчдэл</td><td>220V / 50Hz · 110V / 60Hz</td></tr>
         <tr><td>Хөргөх хүч чадал</td><td>1,800 W</td></tr>
         <tr><td>Агаарын үйлдвэрлэх хэмжээ</td><td>75 м³/цаг</td></tr>
-        <tr><td>Нийт эрчим хүч</td><td>1,000 W</td></tr>
         <tr><td>Хэмжээ</td><td>75 × 44 × 73 см</td></tr>
         <tr><td>Жин</td><td>85 кг</td></tr>
         <tr><td>Үйлдвэрлэгч</td><td>CTN.FI / Finland</td></tr>
       </table>
-      <div style="margin-top:28px;">
-        <div class="sec-label">Алдаа засах</div>
-        <table class="spec-table">
-          <tr><td>Ууршуулагчийн температурын алдаа</td><td>Хүлээ — компрессор өөрөө унтарна</td></tr>
-          <tr><td>Хоолойн температурын алдаа</td><td>Хүлээ — автоматаар зогсоно</td></tr>
-          <tr><td>Усны түвшний алдаа</td><td>Конденсацын усыг гадагшлуул</td></tr>
-        </table>
-      </div>
     </div>
   </div>
 </section>

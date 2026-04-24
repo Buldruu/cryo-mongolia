@@ -5,6 +5,16 @@
 <title>LedPro™ — °CRYO Mongolia</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="shared.css"/>
+<style>
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.wave-bar{display:flex;align-items:center;gap:14px;padding:14px 18px;border:1.5px solid var(--border);border-radius:var(--r-md);background:var(--bg-card);margin-bottom:10px}
+.wave-dot{width:14px;height:14px;border-radius:50%;flex-shrink:0}
+.wave-red{background:#e05252}
+.wave-nir{background:#8b0000}
+.wave-info h4{font-size:14px;font-weight:500;margin-bottom:3px}
+.wave-info p{font-size:12px;color:var(--text-secondary);line-height:1.5}
+@media(max-width:900px){.hero-img-wrap{display:none}}
+</style>
 </head>
 <body>
 <nav class="topnav">
@@ -12,15 +22,15 @@
   <a href="hub.html" class="nav-logo">°CRYO <span>Mongolia</span></a>
 </nav>
 
+<!-- HERO — img-ledpro-1.png (front real photo) -->
 <div class="dev-hero">
+  <div class="hero-img-wrap" style="position:absolute;right:64px;top:50%;transform:translateY(-50%);z-index:2;opacity:0;animation:fadeIn 1s .7s forwards;">
+    <img src="img-ledpro-1.png" alt="LedPro" style="height:380px;width:auto;object-fit:contain;filter:drop-shadow(0 20px 44px rgba(42,31,26,.12));">
+  </div>
   <div class="hero-label">Улаан гэрлийн эмчилгээ</div>
   <div class="hero-tag">CTN LedPro™ · Red Light + Near-Infrared</div>
   <h1 class="dev-title">Led<br><span class="accent">Pro</span></h1>
   <p class="dev-subtitle">28,515 LED ашиглан улаан болон ойрын инфра улаан гэрлийн спектрийг ялгаруулж арьс, булчин, эдийн эрүүл мэндийг сайжруулдаг дэвшилтэт под.</p>
-  
-<div style="position:absolute;right:64px;top:50%;transform:translateY(-50%);z-index:2;opacity:0;animation:fadeIn 1s .8s forwards;">
-  <img src="img-ledpro-1.png" alt="LedPro" style="height:360px;width:auto;object-fit:contain;filter:drop-shadow(0 20px 40px rgba(42,31,26,.12));">
-</div>
   <div class="hero-badges">
     <div class="hero-badge"><span class="hb-num">28,515</span><div class="hb-label">LED тоо</div></div>
     <div class="hero-badge"><span class="hb-num">15 мин</span><div class="hb-label">Эмчилгээ</div></div>
@@ -29,6 +39,7 @@
   </div>
 </div>
 
+<!-- ЯАЖ АЖИЛЛАДАГ + img-ledpro-2.png (red light use) -->
 <section class="section alt">
   <div class="sec-label">Технологи</div>
   <h2 class="sec-title reveal">Хэрхэн ажилладаг вэ?</h2>
@@ -42,13 +53,14 @@
       <div class="wave-dot wave-nir"></div>
       <div class="wave-info"><h4>Ойрын инфра улаан (NIR) — 700–1100 нанометр</h4><p>Биеийн гүн рүү нэвтэрч булчин, мэдрэл, ясанд нөлөөлдөг. Эсийн засвар болон цусны эргэлтийг сайжруулдаг.</p></div>
     </div>
-  
-  <div style="margin-top:28px;border-radius:var(--r-xl);overflow:hidden;border:1.5px solid var(--border);">
-    <img src="img-ledpro-2.png" alt="Red Light combined with Near-Infrared" style="width:100%;display:block;object-fit:cover;max-height:320px;">
+    <!-- img-ledpro-2.png: Red light combined use photo -->
+    <div style="margin-top:24px;border-radius:var(--r-xl);overflow:hidden;border:1.5px solid var(--border);">
+      <img src="img-ledpro-2.png" alt="Red Light combined with Near-Infrared" style="width:100%;display:block;object-fit:cover;max-height:300px;">
+    </div>
   </div>
-</div>
 </section>
 
+<!-- АШИГ ТУС -->
 <section class="section">
   <div class="sec-label">Ашиг тус</div>
   <h2 class="sec-title reveal">LedPro-ийн ашиг тус</h2>
@@ -66,6 +78,7 @@
   </div>
 </section>
 
+<!-- ОНЦЛОГ + img-ledpro-4.png -->
 <section class="section alt">
   <div class="sec-label">Онцлог шинж чанар</div>
   <h2 class="sec-title reveal">Яагаад LedPro™ вэ?</h2>
@@ -76,13 +89,14 @@
     <div class="feat-card"><span class="feat-icon">⚡</span><div class="feat-num">2900W</div><div class="feat-title">Эрч хүч хэмнэлттэй</div><div class="feat-desc">Бага эрчим хүч зарцуулдаг, тогтвортой материалаар бүтээгдсэн байгаль орчинд ээлтэй шийдэл.</div></div>
     <div class="feat-card"><span class="feat-icon">✨</span><div class="feat-num">0</div><div class="feat-title">Сөрөг нөлөөгүй</div><div class="feat-desc">Өвдөлтгүй, бүх төрлийн арьсанд тохиромжтой, ямар ч сөрөг нөлөөгүй аюулгүй эмчилгээ.</div></div>
     <div class="feat-card"><span class="feat-icon">🔌</span><div class="feat-num">P&P</div><div class="feat-title">Plug-and-play</div><div class="feat-desc">Нарийн, цэвэр дизайнтай тул ямар ч эрүүл мэндийн газар хялбархан суурилуулах боломжтой.</div></div>
-  
-  <div style="margin-top:32px;border-radius:var(--r-xl);overflow:hidden;border:1.5px solid var(--border);">
-    <img src="img-ledpro-4.png" alt="LedPro CTN" style="width:100%;display:block;object-fit:cover;max-height:280px;">
   </div>
-</div>
+  <!-- img-ledpro-4.png: CTN angle view -->
+  <div style="margin-top:28px;border-radius:var(--r-xl);overflow:hidden;border:1.5px solid var(--border);" class="reveal">
+    <img src="img-ledpro-4.png" alt="LedPro CTN" style="width:100%;display:block;object-fit:cover;max-height:260px;">
+  </div>
 </section>
 
+<!-- ХОРИГЛОХ ЗААЛТ -->
 <section class="section">
   <div class="sec-label">Хориглох заалт</div>
   <h2 class="sec-title reveal">Хэрэглэж болохгүй тохиолдол</h2>
@@ -110,6 +124,7 @@
   </div>
 </section>
 
+<!-- ХЭРЭГЛЭХ ЗААВАР + SPECS + img-ledpro-3.png -->
 <section class="section alt">
   <div class="two-col">
     <div>
@@ -124,11 +139,10 @@
       </div>
     </div>
     <div class="reveal">
+      <!-- img-ledpro-3.png: open pod -->
+      <img src="img-ledpro-3.png" alt="LedPro open pod" style="width:100%;display:block;border-radius:var(--r-xl);border:1.5px solid var(--border);object-fit:contain;background:var(--bg-subtle);padding:16px;max-height:260px;margin-bottom:24px;">
+      <p style="font-size:11px;color:var(--text-muted);text-align:center;margin-bottom:24px;letter-spacing:.5px;">LedPro™ — 28,515 LED · CTN.FI</p>
       <div class="sec-label">Техникийн үзүүлэлт</div>
-      <div style="margin-bottom:24px;border-radius:var(--r-xl);overflow:hidden;border:1.5px solid var(--border);">
-    <img src="img-ledpro-3.png" alt="LedPro front" style="width:100%;display:block;object-fit:cover;max-height:260px;">
-  </div>
-  <h3 style="font-family:var(--ff-display);font-size:28px;font-weight:600;margin-bottom:18px;">Үзүүлэлтүүд</h3>
       <table class="spec-table">
         <tr><td>Төрөл</td><td>Red Light & NIR Therapy Pod</td></tr>
         <tr><td>LED тоо</td><td>28,515 ширхэг (Epistar)</td></tr>

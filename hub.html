@@ -6,48 +6,47 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="shared.css"/>
 <style>
-.hero-hub{min-height:100vh;display:flex;align-items:center;padding-top:64px;position:relative;overflow:hidden;background:var(--bg-page)}
+.hero-hub{min-height:55vh;display:flex;align-items:center;padding-top:64px;position:relative;overflow:hidden;background:var(--bg-page)}
 .hero-hub::before{content:'';position:absolute;top:-80px;right:-100px;width:560px;height:560px;background:radial-gradient(circle,rgba(31,107,94,.08) 0%,transparent 70%);pointer-events:none}
 .hero-hub::after{content:'';position:absolute;bottom:-60px;left:-60px;width:360px;height:360px;background:radial-gradient(circle,rgba(184,113,46,.06) 0%,transparent 70%);pointer-events:none}
-.hub-inner{padding:0 64px;position:relative;z-index:1;width:100%}
+.hub-inner{padding:60px 64px;position:relative;z-index:1;width:100%}
 .hub-chip{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;background:var(--accent-soft);color:var(--accent);font-size:11px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;border-radius:99px;margin-bottom:22px}
 .hub-chip::before{content:'';width:6px;height:6px;background:var(--accent-mid);border-radius:50%}
-.hub-title{font-family:var(--ff-display);font-size:clamp(44px,7vw,96px);font-weight:600;line-height:1.02;letter-spacing:-.5px;margin-bottom:20px}
+.hub-title{font-family:var(--ff-display);font-size:clamp(44px,7vw,88px);font-weight:600;line-height:1.02;letter-spacing:-.5px;margin-bottom:16px}
 .hub-title .accent{color:var(--accent)}
-.hub-sub{font-family:var(--ff-display);font-size:19px;font-weight:400;font-style:italic;color:var(--text-secondary);max-width:560px;line-height:1.6;margin-bottom:0}
+.hub-sub{font-family:var(--ff-display);font-size:18px;font-weight:400;font-style:italic;color:var(--text-secondary);max-width:560px;line-height:1.6}
 
 /* Stats bar */
-.stats-bar{padding:48px 64px;background:linear-gradient(135deg,#e8f5f2 0%,#f0ede6 100%);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.stats-bar{padding:40px 64px;background:linear-gradient(135deg,#e8f5f2 0%,#f0ede6 100%);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 .stats-inner{display:grid;grid-template-columns:repeat(4,1fr);max-width:860px;margin:0 auto}
-.sstat{text-align:center;padding:16px;border-right:1px solid rgba(31,107,94,.12)}
+.sstat{text-align:center;padding:14px;border-right:1px solid rgba(31,107,94,.12)}
 .sstat:last-child{border:none}
-.sstat-num{font-family:var(--ff-display);font-size:44px;font-weight:600;color:var(--accent);line-height:1;display:block}
+.sstat-num{font-family:var(--ff-display);font-size:40px;font-weight:600;color:var(--accent);line-height:1;display:block}
 .sstat-unit{font-size:.45em;color:var(--gold)}
-.sstat-label{font-size:10px;font-weight:600;letter-spacing:1.5px;color:var(--text-muted);text-transform:uppercase;margin-top:6px}
+.sstat-label{font-size:10px;font-weight:600;letter-spacing:1.5px;color:var(--text-muted);text-transform:uppercase;margin-top:5px}
 
 /* Device grid */
-.devices-section{padding:80px 64px}
-.dg-header{text-align:center;margin-bottom:56px}
+.devices-section{padding:72px 64px}
+.dg-header{text-align:center;margin-bottom:52px}
 .dg-chip{display:inline-block;padding:5px 14px;background:var(--accent-soft);color:var(--accent);font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;border-radius:99px;margin-bottom:14px}
 .dg-title{font-family:var(--ff-display);font-size:clamp(28px,4vw,52px);font-weight:600;line-height:1.1;letter-spacing:-.3px}
-.device-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;max-width:920px;margin:0 auto}
+
+/* 4 card grid */
+.device-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;max-width:960px;margin:0 auto}
 .device-card{background:var(--bg-card);border:1.5px solid var(--border);border-radius:var(--r-xl);overflow:hidden;text-decoration:none;transition:all var(--ease);display:flex;flex-direction:column}
-.device-card:hover{border-color:rgba(31,107,94,.35);transform:translateY(-5px);box-shadow:0 14px 44px rgba(42,31,26,.1)}
-.dc-visual{height:200px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.dc-visual.v1{background:linear-gradient(135deg,#e8f5f2,#d4ede8)}
-.dc-visual.v2{background:linear-gradient(135deg,#fde8e8,#f9d0d0)}
-.dc-visual.v3{background:linear-gradient(135deg,#e4eeff,#ccdcf8)}
-.dc-visual.v4{background:linear-gradient(135deg,#f0e8ff,#e0d0f8)}
-.dc-icon{font-size:70px;opacity:.35;transition:all var(--ease)}
-.device-card:hover .dc-icon{opacity:.55;transform:scale(1.1)}
-.dc-badge{position:absolute;top:14px;right:14px;padding:4px 12px;border-radius:99px;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase}
-.dc-badge.b1{background:rgba(31,107,94,.15);color:var(--accent);border:1px solid rgba(31,107,94,.25)}
-.dc-badge.b2{background:rgba(224,82,82,.12);color:#c03030;border:1px solid rgba(224,82,82,.2)}
-.dc-badge.b3{background:rgba(56,120,220,.12);color:#1a5bb8;border:1px solid rgba(56,120,220,.2)}
-.dc-badge.b4{background:rgba(120,60,200,.12);color:#6030b0;border:1px solid rgba(120,60,200,.2)}
+.device-card:hover{border-color:rgba(31,107,94,.4);transform:translateY(-6px);box-shadow:0 18px 48px rgba(42,31,26,.11)}
+.dc-visual{height:220px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.dc-visual img{width:100%;height:100%;transition:transform .4s ease}
+.device-card:hover .dc-visual img{transform:scale(1.04)}
+.dc-badge{position:absolute;top:14px;right:14px;padding:5px 13px;border-radius:99px;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;z-index:2;backdrop-filter:blur(4px)}
+.b1{background:rgba(31,107,94,.18);color:var(--accent);border:1px solid rgba(31,107,94,.3)}
+.b2{background:rgba(220,60,60,.14);color:#b02020;border:1px solid rgba(220,60,60,.25)}
+.b3{background:rgba(40,100,200,.14);color:#1040a0;border:1px solid rgba(40,100,200,.22)}
+.b4{background:rgba(100,50,180,.14);color:#5020a0;border:1px solid rgba(100,50,180,.22)}
+.b5{background:rgba(20,70,160,.14);color:#1045a8;border:1px solid rgba(20,70,160,.22)}
 .dc-body{padding:22px 26px 26px;flex:1;display:flex;flex-direction:column}
 .dc-num{font-size:10px;font-weight:600;letter-spacing:2px;color:var(--text-muted);text-transform:uppercase;margin-bottom:5px}
-.dc-title{font-family:var(--ff-display);font-size:28px;font-weight:600;margin-bottom:7px;line-height:1.1}
+.dc-title{font-family:var(--ff-display);font-size:26px;font-weight:600;margin-bottom:7px;line-height:1.1}
 .dc-sub{font-size:13px;color:var(--text-secondary);line-height:1.55;margin-bottom:14px}
 .dc-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px}
 .dc-tag{padding:3px 10px;font-size:10px;font-weight:600;border:1.5px solid var(--border);border-radius:99px;color:var(--text-muted);letter-spacing:.5px}
@@ -60,44 +59,36 @@
 .hub-footer .fl{font-family:var(--ff-display);font-size:18px;font-weight:600;color:#fff}
 .hub-footer .fl span{color:var(--accent-mid)}
 
+/* Reveal */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .65s,transform .65s}
+.reveal.visible{opacity:1;transform:none}
+
 @media(max-width:900px){
-  .topnav{padding:0 24px}
-  .hub-inner,.devices-section,.stats-bar{padding-left:24px;padding-right:24px}
+  .topnav,.hub-inner,.devices-section,.stats-bar,.hub-footer{padding-left:24px;padding-right:24px}
   .device-grid{grid-template-columns:1fr}
   .stats-inner{grid-template-columns:repeat(2,1fr)}
   .sstat{border-right:none;border-bottom:1px solid rgba(31,107,94,.1)}
-  .hub-footer{padding:24px;flex-direction:column;text-align:center}
+  .hub-footer{flex-direction:column;text-align:center}
 }
 </style>
 </head>
 <body>
+
 <nav class="topnav">
   <a href="index.html" class="back-btn">Үндсэн хуудас</a>
   <a href="hub.html" class="nav-logo">°CRYO <span>Mongolia</span></a>
 </nav>
 
+<!-- HERO -->
 <section class="hero-hub">
   <div class="hub-inner">
     <div class="hub-chip">CTN.FI Recovery Technologies</div>
     <h1 class="hub-title">Манай<br><span class="accent">Төхөөрөмжүүд</span></h1>
     <p class="hub-sub">Дэлхийн тэргүүлэгч CTN.FI компанийн дэвшилтэт технологиудыг Монголд анх удаа нэвтрүүлж байна.</p>
-  
-    <a href="hub.html" class="device-card">
-      <div class="dc-visual" style="background:linear-gradient(135deg,#e4f0ff,#c8daf5);height:200px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
-        <img src="img-ecabin.png" alt="e°CABIN" style="width:100%;height:100%;object-fit:contain;padding:16px;">
-        <span class="dc-badge" style="position:absolute;top:14px;right:14px;background:rgba(20,80,160,.12);color:#1450a0;border:1px solid rgba(20,80,160,.22);padding:4px 12px;border-radius:99px;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;">Электрик крио</span>
-      </div>
-      <div class="dc-body">
-        <div class="dc-num">05 — e°CABIN™</div>
-        <div class="dc-title">e°Cabin</div>
-        <div class="dc-sub">Цахилгаан эрчим хүчээр ажилладаг, бүрэн автоматжуулсан бүх биеийн криотерапийн кабин</div>
-        <div class="dc-tags"><span class="dc-tag">Цахилгаан</span><span class="dc-tag">Автомат</span><span class="dc-tag">Бүх бие</span></div>
-        <div class="dc-arrow">Удахгүй нэмэгдэнэ →</div>
-      </div>
-    </a>
   </div>
 </section>
 
+<!-- STATS -->
 <div class="stats-bar">
   <div class="stats-inner">
     <div class="sstat"><span class="sstat-num">5<span class="sstat-unit">+</span></span><div class="sstat-label">Дэвшилтэт төхөөрөмж</div></div>
@@ -107,24 +98,36 @@
   </div>
 </div>
 
+<!-- DEVICE CARDS -->
 <section class="devices-section">
   <div class="dg-header reveal">
     <div class="dg-chip">Дэлгэрэнгүй мэдээлэл</div>
     <h2 class="dg-title">Төхөөрөмж сонгох</h2>
   </div>
-  <div class="device-grid reveal">
-    <a href="cabin.html" class="device-card">
-      <div class="dc-visual v1"><img src="img-cabin-2.png" alt="Cryo°CabinTM" style="width:100%;height:100%;object-fit:cover;object-position:center;opacity:.92;"><span class="dc-badge b1">Бүхэл бие</span></div>
+
+  <div class="device-grid">
+
+    <!-- 01 Cryo°CabinTM -->
+    <a href="cabin.html" class="device-card reveal">
+      <div class="dc-visual" style="background:linear-gradient(135deg,#e6f3f0,#cce8e2);">
+        <img src="img-cabin-2.png" alt="Cryo°CabinTM" style="object-fit:contain;padding:12px;">
+        <span class="dc-badge b1">Бүхэл бие</span>
+      </div>
       <div class="dc-body">
         <div class="dc-num">01 — Cryo°CabinTM</div>
         <div class="dc-title">Крио Кабин</div>
-        <div class="dc-sub">Бүхэл биеийн хүйтний эмчилгээ — шингэн азотаар −140°C хүртэл</div>
+        <div class="dc-sub">Шингэн азотаар ажилладаг бүхэл биеийн хүйтний эмчилгээ — −140°C хүртэл</div>
         <div class="dc-tags"><span class="dc-tag">Криотерапи</span><span class="dc-tag">3 минут</span><span class="dc-tag">−140°C</span></div>
         <div class="dc-arrow">Дэлгэрэнгүй үзэх →</div>
       </div>
     </a>
-    <a href="ledpro.html" class="device-card">
-      <div class="dc-visual v2"><img src="img-ledpro-1.png" alt="LedPro" style="width:100%;height:100%;object-fit:cover;object-position:center;opacity:.92;"><span class="dc-badge b2">Улаан гэрэл</span></div>
+
+    <!-- 02 LedPro -->
+    <a href="ledpro.html" class="device-card reveal">
+      <div class="dc-visual" style="background:linear-gradient(135deg,#eef2ff,#dce6fc);">
+        <img src="img-ledpro-1.png" alt="LedPro" style="object-fit:cover;">
+        <span class="dc-badge b2">Улаан гэрэл</span>
+      </div>
       <div class="dc-body">
         <div class="dc-num">02 — CTN LedPro™</div>
         <div class="dc-title">LedPro</div>
@@ -133,8 +136,13 @@
         <div class="dc-arrow">Дэлгэрэнгүй үзэх →</div>
       </div>
     </a>
-    <a href="oxypro.html" class="device-card">
-      <div class="dc-visual v3"><img src="img-oxypro-2.png" alt="OxyPro" style="width:100%;height:100%;object-fit:contain;padding:20px;background:linear-gradient(135deg,#e4eeff,#ccdcf8);"><span class="dc-badge b3">Хүчилтөрөгч</span></div>
+
+    <!-- 03 OxyPro -->
+    <a href="oxypro.html" class="device-card reveal">
+      <div class="dc-visual" style="background:linear-gradient(135deg,#e8f0f8,#d0e2f4);">
+        <img src="img-oxypro-1.png" alt="OxyPro" style="object-fit:contain;padding:16px;">
+        <span class="dc-badge b3">Хүчилтөрөгч</span>
+      </div>
       <div class="dc-body">
         <div class="dc-num">03 — CTN OxyPro™</div>
         <div class="dc-title">OxyPro</div>
@@ -143,8 +151,13 @@
         <div class="dc-arrow">Дэлгэрэнгүй үзэх →</div>
       </div>
     </a>
-    <a href="xcryo.html" class="device-card">
-      <div class="dc-visual v4"><img src="img-xcryo-1.png" alt="X°CRYO" style="width:100%;height:100%;object-fit:contain;padding:20px;background:#f0e8ff;"><span class="dc-badge b4">Локал крио</span></div>
+
+    <!-- 04 X°CRYO -->
+    <a href="xcryo.html" class="device-card reveal">
+      <div class="dc-visual" style="background:linear-gradient(135deg,#f0ecff,#e0d4f8);">
+        <img src="img-xcryo-1.png" alt="X°CRYO" style="object-fit:contain;padding:12px;">
+        <span class="dc-badge b4">Локал крио</span>
+      </div>
       <div class="dc-body">
         <div class="dc-num">04 — X°CRYO™</div>
         <div class="dc-title">X°CRYO</div>
@@ -153,6 +166,22 @@
         <div class="dc-arrow">Дэлгэрэнгүй үзэх →</div>
       </div>
     </a>
+
+    <!-- 05 e°CABIN -->
+    <a href="#" class="device-card reveal" style="opacity:.75;cursor:default;">
+      <div class="dc-visual" style="background:linear-gradient(135deg,#e4ecf8,#c8d8f2);">
+        <img src="img-ecabin.png" alt="e°CABIN" style="object-fit:contain;padding:16px;">
+        <span class="dc-badge b5">Электрик крио</span>
+      </div>
+      <div class="dc-body">
+        <div class="dc-num">05 — e°CABIN™</div>
+        <div class="dc-title">e°Cabin</div>
+        <div class="dc-sub">Цахилгаан эрчим хүчээр ажилладаг бүрэн автоматжуулсан бүх биеийн криотерапийн кабин</div>
+        <div class="dc-tags"><span class="dc-tag">Цахилгаан</span><span class="dc-tag">Автомат</span><span class="dc-tag">Бүх бие</span></div>
+        <div class="dc-arrow" style="color:var(--text-muted);">Удахгүй нэмэгдэнэ</div>
+      </div>
+    </a>
+
   </div>
 </section>
 
@@ -164,7 +193,7 @@
 
 <script>
 document.querySelectorAll('.reveal').forEach(r=>
-  new IntersectionObserver(([e])=>e.isIntersecting&&r.classList.add('visible'),{threshold:.1}).observe(r)
+  new IntersectionObserver(([e])=>e.isIntersecting&&r.classList.add('visible'),{threshold:.08}).observe(r)
 );
 </script>
 </body>
