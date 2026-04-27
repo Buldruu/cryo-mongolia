@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>°CRYO Mongolia – Эрүүл мэнд · Гоо сайхан · Нөхөн сэргэлт</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="index.css"/>
 </head>
 <body>
 
@@ -14,6 +14,7 @@
   <ul class="nav-links">
     <li><a href="#about">Бидний тухай</a></li>
     <li><a href="#treatments">Үйлчилгээ</a></li>
+    <li><a href="hub.html">Төхөөрөмж</a></li>
     <li><a href="#pricing">Үнэ</a></li>
     <li><a href="#contact">Холбоо барих</a></li>
   </ul>
@@ -26,7 +27,7 @@
 <div class="mobile-menu" id="mobileMenu">
   <a href="#about" onclick="toggleMenu()">Бидний тухай</a>
   <a href="#treatments" onclick="toggleMenu()">Үйлчилгээ</a>
-  <a href="#pricing" onclick="toggleMenu()">Үнэ</a>
+  <a href="hub.html" onclick="toggleMenu()">Төхөөрөмж</a>
   <a href="#contact" onclick="toggleMenu()">Холбоо барих</a>
   <a href="#" class="btn btn-primary" onclick="openModal();toggleMenu();return false;">Цаг захиалах</a>
 </div>
@@ -338,7 +339,7 @@
   </div>
 </div>
 
-<script src="script.js"></script>
+<script src="index.js"></script>
 <script>
 function handleContact(e){e.preventDefault();showToast('Таны хүсэлт амжилттай илгээгдлээ! Бид тантай удахгүй холбогдоно.');e.target.reset();}
 </script>
