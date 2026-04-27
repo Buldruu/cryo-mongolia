@@ -1,22 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
 
 :root {
-  --bg-page:    #faf8f4;
-  --bg-surface: #f4f1eb;
+  --bg-page:    #f0f7fc;
+  --bg-surface: #e4eef5;
   --bg-card:    #ffffff;
-  --bg-subtle:  #f9f7f2;
-  --text-primary:   #2a1f1a;
-  --text-secondary: #6b5c52;
-  --text-muted:     #a08c80;
-  --accent:         #1f6b5e;
-  --accent-soft:    #d4ede8;
-  --accent-hover:   #165048;
-  --accent-mid:     #2d8c7c;
-  --gold:           #b8712e;
-  --gold-soft:      #f5e6d3;
-  --border:         rgba(42,31,26,.10);
-  --border-mid:     rgba(42,31,26,.18);
-  --border-strong:  rgba(42,31,26,.28);
+  --bg-subtle:  #eaf3f8;
+  --text-primary:   #0d2840;
+  --text-secondary: #4a6885;
+  --text-muted:     #7a96b0;
+  --accent:         #1d6fa5;
+  --accent-soft:    #d0e6f5;
+  --accent-hover:   #155785;
+  --accent-mid:     #2d8cc8;
+  --gold:           #5b8caf;
+  --gold-soft:      #dce8f0;
+  --border:         rgba(13,40,64,.10);
+  --border-mid:     rgba(13,40,64,.18);
+  --border-strong:  rgba(13,40,64,.28);
   --danger-soft:    #faeaea;
   --danger-text:    #8b2020;
   --warn-soft:      #fdf3e3;
