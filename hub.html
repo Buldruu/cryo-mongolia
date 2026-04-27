@@ -2,199 +2,251 @@
 <html lang="mn">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Төхөөрөмжүүд — °CRYO Mongolia</title>
+<title>Cryo°CabinTM — °CRYO Mongolia</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="shared.css"/>
 <style>
-.hero-hub{min-height:55vh;display:flex;align-items:center;padding-top:64px;position:relative;overflow:hidden;background:var(--bg-page)}
-.hero-hub::before{content:'';position:absolute;top:-80px;right:-100px;width:560px;height:560px;background:radial-gradient(circle,rgba(31,107,94,.08) 0%,transparent 70%);pointer-events:none}
-.hero-hub::after{content:'';position:absolute;bottom:-60px;left:-60px;width:360px;height:360px;background:radial-gradient(circle,rgba(184,113,46,.06) 0%,transparent 70%);pointer-events:none}
-.hub-inner{padding:60px 64px;position:relative;z-index:1;width:100%}
-.hub-chip{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;background:var(--accent-soft);color:var(--accent);font-size:11px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;border-radius:99px;margin-bottom:22px}
-.hub-chip::before{content:'';width:6px;height:6px;background:var(--accent-mid);border-radius:50%}
-.hub-title{font-family:var(--ff-display);font-size:clamp(44px,7vw,88px);font-weight:600;line-height:1.02;letter-spacing:-.5px;margin-bottom:16px}
-.hub-title .accent{color:var(--accent)}
-.hub-sub{font-family:var(--ff-display);font-size:18px;font-weight:400;font-style:italic;color:var(--text-secondary);max-width:560px;line-height:1.6}
-
-/* Stats bar */
-.stats-bar{padding:40px 64px;background:linear-gradient(135deg,#e8f5f2 0%,#f0ede6 100%);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.stats-inner{display:grid;grid-template-columns:repeat(4,1fr);max-width:860px;margin:0 auto}
-.sstat{text-align:center;padding:14px;border-right:1px solid rgba(31,107,94,.12)}
-.sstat:last-child{border:none}
-.sstat-num{font-family:var(--ff-display);font-size:40px;font-weight:600;color:var(--accent);line-height:1;display:block}
-.sstat-unit{font-size:.45em;color:var(--gold)}
-.sstat-label{font-size:10px;font-weight:600;letter-spacing:1.5px;color:var(--text-muted);text-transform:uppercase;margin-top:5px}
-
-/* Device grid */
-.devices-section{padding:72px 64px}
-.dg-header{text-align:center;margin-bottom:52px}
-.dg-chip{display:inline-block;padding:5px 14px;background:var(--accent-soft);color:var(--accent);font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;border-radius:99px;margin-bottom:14px}
-.dg-title{font-family:var(--ff-display);font-size:clamp(28px,4vw,52px);font-weight:600;line-height:1.1;letter-spacing:-.3px}
-
-/* 4 card grid */
-.device-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;max-width:960px;margin:0 auto}
-.device-card{background:var(--bg-card);border:1.5px solid var(--border);border-radius:var(--r-xl);overflow:hidden;text-decoration:none;transition:all var(--ease);display:flex;flex-direction:column}
-.device-card:hover{border-color:rgba(31,107,94,.4);transform:translateY(-6px);box-shadow:0 18px 48px rgba(42,31,26,.11)}
-.dc-visual{height:220px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.dc-visual img{width:100%;height:100%;transition:transform .4s ease}
-.device-card:hover .dc-visual img{transform:scale(1.04)}
-.dc-badge{position:absolute;top:14px;right:14px;padding:5px 13px;border-radius:99px;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;z-index:2;backdrop-filter:blur(4px)}
-.b1{background:rgba(31,107,94,.18);color:var(--accent);border:1px solid rgba(31,107,94,.3)}
-.b2{background:rgba(220,60,60,.14);color:#b02020;border:1px solid rgba(220,60,60,.25)}
-.b3{background:rgba(40,100,200,.14);color:#1040a0;border:1px solid rgba(40,100,200,.22)}
-.b4{background:rgba(100,50,180,.14);color:#5020a0;border:1px solid rgba(100,50,180,.22)}
-.b5{background:rgba(20,70,160,.14);color:#1045a8;border:1px solid rgba(20,70,160,.22)}
-.dc-body{padding:22px 26px 26px;flex:1;display:flex;flex-direction:column}
-.dc-num{font-size:10px;font-weight:600;letter-spacing:2px;color:var(--text-muted);text-transform:uppercase;margin-bottom:5px}
-.dc-title{font-family:var(--ff-display);font-size:26px;font-weight:600;margin-bottom:7px;line-height:1.1}
-.dc-sub{font-size:13px;color:var(--text-secondary);line-height:1.55;margin-bottom:14px}
-.dc-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px}
-.dc-tag{padding:3px 10px;font-size:10px;font-weight:600;border:1.5px solid var(--border);border-radius:99px;color:var(--text-muted);letter-spacing:.5px}
-.dc-arrow{margin-top:auto;font-size:12px;font-weight:500;color:var(--accent);display:flex;align-items:center;gap:6px;transition:gap var(--ease)}
-.device-card:hover .dc-arrow{gap:12px}
-
-/* Footer */
-.hub-footer{background:var(--text-primary);color:rgba(255,255,255,.5);padding:32px 64px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
-.hub-footer p{font-size:12px}
-.hub-footer .fl{font-family:var(--ff-display);font-size:18px;font-weight:600;color:#fff}
-.hub-footer .fl span{color:var(--accent-mid)}
-
-/* Reveal */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .65s,transform .65s}
-.reveal.visible{opacity:1;transform:none}
-
-@media(max-width:900px){
-  .topnav,.hub-inner,.devices-section,.stats-bar,.hub-footer{padding-left:24px;padding-right:24px}
-  .device-grid{grid-template-columns:1fr}
-  .stats-inner{grid-template-columns:repeat(2,1fr)}
-  .sstat{border-right:none;border-bottom:1px solid rgba(31,107,94,.1)}
-  .hub-footer{flex-direction:column;text-align:center}
-}
+.prod-img{width:100%;display:block;border-radius:var(--r-xl);border:1.5px solid var(--border);object-fit:cover}
+.prod-img-contain{width:100%;display:block;border-radius:var(--r-xl);border:1.5px solid var(--border);object-fit:contain;background:var(--bg-subtle);padding:20px}
+.img-caption{font-size:11px;color:var(--text-muted);text-align:center;margin-top:8px;letter-spacing:.5px}
 </style>
 </head>
 <body>
-
 <nav class="topnav">
-  <a href="index.html" class="back-btn">Үндсэн хуудас</a>
+  <a href="hub.html" class="back-btn">Төхөөрөмжүүд</a>
   <a href="hub.html" class="nav-logo">°CRYO <span>Mongolia</span></a>
 </nav>
 
 <!-- HERO -->
-<section class="hero-hub">
-  <div class="hub-inner">
-    <div class="hub-chip">CTN.FI Recovery Technologies</div>
-    <h1 class="hub-title">Манай<br><span class="accent">Төхөөрөмжүүд</span></h1>
-    <p class="hub-sub">Дэлхийн тэргүүлэгч CTN.FI компанийн дэвшилтэт технологиудыг Монголд анх удаа нэвтрүүлж байна.</p>
+<div class="dev-hero">
+  <div style="position:absolute;right:64px;top:50%;transform:translateY(-50%);z-index:2;opacity:0;animation:fadeIn 1s .7s forwards;" class="hero-img-wrap">
+    <img src="photos/img-cabin-2.png" alt="Cryo°CabinTM" style="height:440px;width:auto;object-fit:contain;filter:drop-shadow(0 24px 48px rgba(42,31,26,.15));">
   </div>
-</section>
-
-<!-- STATS -->
-<div class="stats-bar">
-  <div class="stats-inner">
-    <div class="sstat"><span class="sstat-num">5<span class="sstat-unit">+</span></span><div class="sstat-label">Дэвшилтэт төхөөрөмж</div></div>
-    <div class="sstat"><span class="sstat-num">−140<span class="sstat-unit">°C</span></span><div class="sstat-label">Хамгийн хүйтэн</div></div>
-    <div class="sstat"><span class="sstat-num">28K<span class="sstat-unit">+</span></span><div class="sstat-label">LED — LedPro</div></div>
-    <div class="sstat"><span class="sstat-num">100<span class="sstat-unit">%</span></span><div class="sstat-label">Аюулгүй</div></div>
+  <div class="hero-label">Бүхэл биеийн криотерапи</div>
+  <div class="hero-tag">CTN Cryo°CabinTM · Шингэн азот · −140°C</div>
+  <h1 class="dev-title">Крио<br><span class="accent">Кабин</span></h1>
+  <p class="dev-subtitle">Шингэн азотаар ажилладаг бүхэл биеийн крио эмчилгээний систем. −120°C–−140°C температурт 3 минут байснаар биеийг гүнзгий сэргээнэ.</p>
+  <div class="hero-badges">
+    <div class="hero-badge"><span class="hb-num">−140°C</span><div class="hb-label">Хамгийн хүйтэн</div></div>
+    <div class="hero-badge"><span class="hb-num">3 мин</span><div class="hb-label">Эмчилгээний хугацаа</div></div>
+    <div class="hero-badge"><span class="hb-num">800</span><div class="hb-label">Калори шатаана</div></div>
+    <div class="hero-badge"><span class="hb-num">100%</span><div class="hb-label">Цэвэр агаар</div></div>
   </div>
 </div>
 
-<!-- DEVICE CARDS -->
-<section class="devices-section">
-  <div class="dg-header reveal">
-    <div class="dg-chip">Дэлгэрэнгүй мэдээлэл</div>
-    <h2 class="dg-title">Төхөөрөмж сонгох</h2>
-  </div>
-
-  <div class="device-grid">
-
-    <!-- 01 Cryo°CabinTM -->
-    <a href="cabin.html" class="device-card reveal">
-      <div class="dc-visual" style="background:linear-gradient(135deg,#e6f3f0,#cce8e2);">
-        <img src="photos/img-cabin-2.png" alt="Cryo°CabinTM" style="object-fit:contain;padding:12px;">
-        <span class="dc-badge b1">Бүхэл бие</span>
-      </div>
-      <div class="dc-body">
-        <div class="dc-num">01 — Cryo°CabinTM</div>
-        <div class="dc-title">Крио Кабин</div>
-        <div class="dc-sub">Шингэн азотаар ажилладаг бүхэл биеийн хүйтний эмчилгээ — −140°C хүртэл</div>
-        <div class="dc-tags"><span class="dc-tag">Криотерапи</span><span class="dc-tag">3 минут</span><span class="dc-tag">−140°C</span></div>
-        <div class="dc-arrow">Дэлгэрэнгүй үзэх →</div>
-      </div>
-    </a>
-
-    <!-- 02 LedPro -->
-    <a href="ledpro.html" class="device-card reveal">
-      <div class="dc-visual" style="background:linear-gradient(135deg,#eef2ff,#dce6fc);">
-        <img src="photos/img-ledpro-1.png" alt="LedPro" style="object-fit:cover;">
-        <span class="dc-badge b2">Улаан гэрэл</span>
-      </div>
-      <div class="dc-body">
-        <div class="dc-num">02 — CTN LedPro™</div>
-        <div class="dc-title">LedPro</div>
-        <div class="dc-sub">Улаан болон инфра улаан гэрлийн эмчилгээ — 28,515 LED</div>
-        <div class="dc-tags"><span class="dc-tag">28,515 LED</span><span class="dc-tag">15 минут</span><span class="dc-tag">NIR</span></div>
-        <div class="dc-arrow">Дэлгэрэнгүй үзэх →</div>
-      </div>
-    </a>
-
-    <!-- 03 OxyPro -->
-    <a href="oxypro.html" class="device-card reveal">
-      <div class="dc-visual" style="background:linear-gradient(135deg,#e8f0f8,#d0e2f4);">
-        <img src="photos/img-oxypro-1.png" alt="OxyPro" style="object-fit:contain;padding:16px;">
-        <span class="dc-badge b3">Хүчилтөрөгч</span>
-      </div>
-      <div class="dc-body">
-        <div class="dc-num">03 — CTN OxyPro™</div>
-        <div class="dc-title">OxyPro</div>
-        <div class="dc-sub">Өндөр даралттай хүчилтөрөгчийн эмчилгээ — 1.4 ATA</div>
-        <div class="dc-tags"><span class="dc-tag">1.4 ATA</span><span class="dc-tag">1–2 цаг</span><span class="dc-tag">HBOT</span></div>
-        <div class="dc-arrow">Дэлгэрэнгүй үзэх →</div>
-      </div>
-    </a>
-
-    <!-- 04 X°CRYO -->
-    <a href="xcryo.html" class="device-card reveal">
-      <div class="dc-visual" style="background:linear-gradient(135deg,#f0ecff,#e0d4f8);">
-        <img src="photos/img-xcryo-1.png" alt="X°CRYO" style="object-fit:contain;padding:12px;">
-        <span class="dc-badge b4">Локал крио</span>
-      </div>
-      <div class="dc-body">
-        <div class="dc-num">04 — X°CRYO™</div>
-        <div class="dc-title">X°CRYO</div>
-        <div class="dc-sub">Биеийн тодорхой хэсгийн локал криотерапи — 1–3 минут</div>
-        <div class="dc-tags"><span class="dc-tag">1–3 минут</span><span class="dc-tag">Локал</span><span class="dc-tag">Цахилгаан</span></div>
-        <div class="dc-arrow">Дэлгэрэнгүй үзэх →</div>
-      </div>
-    </a>
-
-    <!-- 05 e°CABIN -->
-    <a href="#" class="device-card reveal" style="opacity:.75;cursor:default;">
-      <div class="dc-visual" style="background:linear-gradient(135deg,#e4ecf8,#c8d8f2);">
-        <img src="photos/img-ecabin.png" alt="e°CABIN" style="object-fit:contain;padding:16px;">
-        <span class="dc-badge b5">Электрик крио</span>
-      </div>
-      <div class="dc-body">
-        <div class="dc-num">05 — e°CABIN™</div>
-        <div class="dc-title">e°Cabin</div>
-        <div class="dc-sub">Цахилгаан эрчим хүчээр ажилладаг бүрэн автоматжуулсан бүх биеийн криотерапийн кабин</div>
-        <div class="dc-tags"><span class="dc-tag">Цахилгаан</span><span class="dc-tag">Автомат</span><span class="dc-tag">Бүх бие</span></div>
-        <div class="dc-arrow" style="color:var(--text-muted);">Удахгүй нэмэгдэнэ</div>
-      </div>
-    </a>
-
+<!-- АШИГ ТУС -->
+<section class="section alt">
+  <div class="sec-label">Ашиг тус</div>
+  <h2 class="sec-title reveal">Машин надад юунд хэрэгтэй вэ?</h2>
+  <p class="sec-desc reveal">Үйлчлүүлэгчдийн хамгийн их асуудаг асуулт. Крио эмчилгээний биед үзүүлэх гол ашиг тусуудыг доор харна уу.</p>
+  <div class="benefits-list reveal">
+    <div class="benefit-item"><p>Бодисын солилцоог идэвхжүүлж <b>500–800 ккал</b> шатаана</p></div>
+    <div class="benefit-item"><p>Биеийн хүч, <b>тэсвэр хатуужлыг</b> нэмэгдүүлнэ</p></div>
+    <div class="benefit-item"><p>Нэг өдрөөс долоо хоног хүртэл <b>өвдөлтийг намдаана</b></p></div>
+    <div class="benefit-item"><p>Дасгалын дараах <b>булчин сэргэлтийг</b> хурдасгана</p></div>
+    <div class="benefit-item"><p><b>Үрэвслийг</b> багасгахад тусалдаг</p></div>
+    <div class="benefit-item"><p>Дараагийн шөнийн <b>унтах чанарыг</b> сайжруулна</p></div>
+    <div class="benefit-item"><p><b>Стресс тайлж</b> сэргэнэ</p></div>
+    <div class="benefit-item"><p><b>Цусны эргэлтийг</b> сайжруулна</p></div>
+    <div class="benefit-item"><p><b>Сарын тэмдгийн</b> өвдөлтийг багасгана</p></div>
+    <div class="benefit-item"><p>Дасгалын өмнө хийхэд <b>эрч хүч нэмнэ</b></p></div>
   </div>
 </section>
 
-<div class="hub-footer">
-  <div class="fl">°CRYO <span>Mongolia</span></div>
-  <p>© 2025 °CRYO Mongolia · CTN.FI Recovery Technologies</p>
-  <p>Улаанбаатар хот · info@cryomongolia.mn</p>
-</div>
+<!-- ЯАЖ АЖИЛЛАДАГ -->
+<section class="section">
+  <div class="sec-label">Ажиллагааны зарчим</div>
+  <h2 class="sec-title reveal">Хэрхэн ажилладаг вэ?</h2>
+  <div class="steps reveal">
+    <div class="step-item"><div class="step-circle">01</div><h4>Бэлтгэл</h4><p>Дотуур хувцас, оймс, гутал, бээлий өмсөнө. Металл зүйлс тайлна.</p></div>
+    <div class="step-item"><div class="step-circle">02</div><h4>Урьдчилан хөргөх</h4><p>Кабиныг +20°C–−110°C хүртэл 3–4 минут урьдчилан хөргөнө.</p></div>
+    <div class="step-item"><div class="step-circle">03</div><h4>Кабинд орох</h4><p>Хурдан ороод хаалгыг хаана. 20 секунд тутамд 90° эргэнэ.</p></div>
+    <div class="step-item"><div class="step-circle">04</div><h4>Эмчилгээ</h4><p>3 минутын эмчилгээ. Хүйтэн мэдрэгдвэл тэр хэсгийг хурдан илэнэ.</p></div>
+    <div class="step-item"><div class="step-circle">05</div><h4>Гарах</h4><p>Гарч халаадаа өмсөн хурдан хувцаслана. Сайхан мэдрэмж удахгүй ирнэ.</p></div>
+  </div>
+</section>
 
+<!-- ХОРИГЛОХ ЗААЛТ -->
+<section class="section alt">
+  <div class="sec-label">Аюулгүй байдал</div>
+  <h2 class="sec-title reveal">Хориглох заалтууд</h2>
+  <p class="sec-desc reveal">Эмчилгээний өмнө үйлчлүүлэгчийн эрүүл мэндийн байдлыг лавлаж, зөвшөөрлийн маягт гарын үсэг зуруулна.</p>
+  <div class="contra-grid reveal">
+    <div class="contra-box danger">
+      <div class="contra-title">⛔ Хориглох</div>
+      <ul class="contra-list">
+        <li>Өндөр цусны даралт (180/- дээш)</li>
+        <li>Рейногийн синдром</li>
+        <li>Криоглобулинеми</li>
+        <li>Жирэмсэн эхчүүд</li>
+        <li>Нээлттэй шарх (гадна тал хатаагүй)</li>
+        <li>Зөвшөөрлийн маягт гарын үсэг зурахаас татгалзсан</li>
+      </ul>
+    </div>
+    <div class="contra-box warn">
+      <div class="contra-title">⚠ Анхааруулга</div>
+      <ul class="contra-list">
+        <li>Нойтон арьстай орохгүй байх</li>
+        <li>Нарны тос арьсанд байх ёсгүй</li>
+        <li>Том металл зүүлт, цаг тайлна</li>
+        <li>Анх удаа бол −120°C тохиромжтой</li>
+        <li>Уурыг амьсгалах ёсгүй</li>
+        <li>Хөлдөлт үүсвэл Алоэ вера тос хэрэглэнэ</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ОПЕРАТОРЫН ЗААВАР + SPECS -->
+<section class="section">
+  <div class="two-col">
+    <div>
+      <div class="sec-label">Операторын заавар</div>
+      <h2 class="sec-title reveal">Кабин ажиллуулах</h2>
+      <div class="howto-steps reveal">
+        <div class="howto-step"><div class="hs-num">1</div><div class="hs-content"><h4>Кабин асаах</h4><p>Цахилгааны утсыг залгаад гол асаах товчийг ON болгоно. Windows ачаалж, нэвтрэх дэлгэц гарахад бэлэн болсон гэсэн үг.</p></div></div>
+        <div class="howto-step"><div class="hs-num">2</div><div class="hs-content"><h4>Азотын хоолой холбох</h4><p>Шингэн азотын хоолойг сав (tank) болон кабинтай холбоно. Тагийг нар буруу тультал эргүүлж, дараа нь 1/2 буцааж эргүүлнэ.</p></div></div>
+        <div class="howto-step"><div class="hs-num">3</div><div class="hs-content"><h4>Даралт шалгах</h4><p>Савны даралт 1.5–3.0 Bar байх ёстой. Оптимал 2.0–2.5 Bar. Даралт бага бол Pressure builder-ийн цоргыг онгойлгоно.</p></div></div>
+        <div class="howto-step"><div class="hs-num">4</div><div class="hs-content"><h4>Өндөр тохируулах</h4><p>Урьдчилан хөргөх үед дэлгэц дээр өндрийг тохируулна. Мөр тавиуртай ижил түвшинд байх ёстой.</p></div></div>
+        <div class="howto-step"><div class="hs-num">5</div><div class="hs-content"><h4>Өдрийн ажлыг дуусгах</h4><p>Өдөр бүрийн эцэст 60–90 минут хатаах горим ажиллуулна. Хоёр үйлчлүүлэгчийн хооронд 120+ минут завсарлага байвал хатаах горим асаана.</p></div></div>
+        <div class="howto-step"><div class="hs-num">6</div><div class="hs-content"><h4>Кабин унтраах</h4><p>Эхлээд Exit дарж дараа нь Shutdown дарна. Дэлгэц бүрэн хар болсны дараа кабины унтраалгыг OFF болгоно.</p></div></div>
+      </div>
+    </div>
+    <div class="reveal">
+      <!-- Cabin зураг -->
+      <img src="photos/img-cabin-2.png" alt="Cryo°CabinTM" class="prod-img-contain" style="max-height:300px;margin-bottom:24px;">
+      <p class="img-caption">Cryo°CabinTM — CTN.FI Recovery Technologies</p>
+
+      <div style="margin-top:28px;">
+        <div class="sec-label">Техникийн үзүүлэлт</div>
+        <table class="spec-table">
+          <tr><td>Хэрэглэх температур</td><td>−120°C / −130°C / −140°C</td></tr>
+          <tr><td>Эмчилгээний хугацаа</td><td>3 минут</td></tr>
+          <tr><td>Хөргөх хугацаа</td><td>3–4 минут (+20° → −110°C)</td></tr>
+          <tr><td>Хөргөх материал</td><td>Шингэн азот (LN₂)</td></tr>
+          <tr><td>Савны даралт</td><td>1.5–3.0 Bar (оптимал 2.0–2.5)</td></tr>
+          <tr><td>Өрөөний талбай</td><td>20 м² дээш</td></tr>
+          <tr><td>Интерфэйс</td><td>Windows + Cryocabin дэлгэц</td></tr>
+          <tr><td>Аюулгүй байдал</td><td>Хөдөлгөөний мэдрэгч, термал камер</td></tr>
+          <tr><td>Үйлдвэрлэгч</td><td>CTN.FI / Finland</td></tr>
+        </table>
+        <div style="margin-top:20px;">
+          <div class="sec-label">Алдаа засах</div>
+          <table class="spec-table">
+            <tr><td>Хэвийн хөргөхгүй</td><td>Даралтыг шалга (1.5 bar дооших)</td></tr>
+            <tr><td>Хачин чимээ</td><td>Даралт 3.5+ bar эсэхийг шалга</td></tr>
+            <tr><td>Хөлдөлтийн дохиолол</td><td>90 мин хатаах горим ажиллуул</td></tr>
+            <tr><td>Азот буцалж байх</td><td>Шингэний цоргыг хаа, хатаах горим</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- e°CABIN SECTION -->
+<section class="section alt">
+  <div style="display:flex;align-items:center;gap:12px;margin-bottom:32px;" class="reveal">
+    <div class="sec-label" style="margin-bottom:0;">Цахилгаан хувилбар</div>
+    <span style="padding:4px 12px;background:rgba(20,80,160,.1);color:#1450a0;border:1px solid rgba(20,80,160,.2);border-radius:99px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;">e°CABIN™</span>
+  </div>
+
+  <div class="two-col reveal">
+    <div>
+      <h2 class="sec-title">e°Cabin — цахилгаан <span style="color:#1450a0;">криотерапи</span></h2>
+      <p class="sec-desc">Шингэн азот огтхон хэрэглэхгүйгээр цахилгаан эрчим хүчээр ажилладаг, бүрэн автоматжуулсан бүх биеийн криотерапийн кабин. Суурилуулах, ашиглах, арчлах нь хамгийн хялбар.</p>
+
+      <div class="benefits-list">
+        <div class="benefit-item"><p><b>Шингэн азот хэрэггүй</b> — цахилгааны залгуурт залгаад ажиллана</p></div>
+        <div class="benefit-item"><p><b>Бүрэн автоматжуулсан</b> — нарийн тохиргоо шаардлагагүй</p></div>
+        <div class="benefit-item"><p><b>Аюулгүй байдал өндөр</b> — шингэн хий хэрэглэхгүй тул</p></div>
+        <div class="benefit-item"><p><b>Арчлах зардал бага</b> — азотын нийлүүлэлт шаардлагагүй</p></div>
+        <div class="benefit-item"><p><b>Байршуулахад хялбар</b> — тусгай агааржуулалт шаардлагагүй</p></div>
+        <div class="benefit-item"><p><b>Cryo°CabinTM-тэй ижил</b> үр дүн, эмчилгээний чанар</p></div>
+      </div>
+    </div>
+
+    <div>
+      <img src="photos/img-ecabin.png" alt="e°CABIN™"
+        style="width:100%;display:block;border-radius:var(--r-xl);border:1.5px solid var(--border);object-fit:contain;background:linear-gradient(135deg,#e4ecf8,#c8d8f2);padding:24px;max-height:320px;margin-bottom:20px;">
+      <p style="font-size:11px;color:var(--text-muted);text-align:center;margin-bottom:24px;letter-spacing:.5px;">e°CABIN™ — CTN.FI Recovery Technologies</p>
+
+      <table class="spec-table">
+        <tr><td>Хөргөх арга</td><td>Цахилгаан компрессор</td></tr>
+        <tr><td>Шингэн азот</td><td>Хэрэггүй</td></tr>
+        <tr><td>Ажиллагаа</td><td>Бүрэн автоматжуулсан</td></tr>
+        <tr><td>Эмчилгээний хугацаа</td><td>3 минут</td></tr>
+        <tr><td>Аюулгүй байдал</td><td>Хөдөлгөөний мэдрэгч, термал камер</td></tr>
+        <tr><td>Тохиромжтой орчин</td><td>Тусгай агааржуулалт шаардлагагүй</td></tr>
+        <tr><td>Үйлдвэрлэгч</td><td>CTN.FI / Finland</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- Хоёр загварын харьцуулалт -->
+  <div style="margin-top:48px;" class="reveal">
+    <div class="sec-label">Харьцуулалт</div>
+    <h3 style="font-family:var(--ff-display);font-size:28px;font-weight:600;margin-bottom:20px;">Cryo°CabinTM vs e°CABIN™</h3>
+    <div style="overflow-x:auto;border-radius:var(--r-lg);border:1.5px solid var(--border);">
+      <table style="width:100%;border-collapse:collapse;font-size:13px;">
+        <thead>
+          <tr style="background:var(--accent-soft);">
+            <th style="padding:12px 16px;text-align:left;color:var(--accent);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;">Шинж чанар</th>
+            <th style="padding:12px 16px;text-align:center;color:var(--accent);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;">Cryo°CabinTM</th>
+            <th style="padding:12px 16px;text-align:center;color:#1450a0;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;">e°CABIN™</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:11px 16px;color:var(--text-muted);">Хөргөх материал</td>
+            <td style="padding:11px 16px;text-align:center;color:var(--text-primary);">Шингэн азот (LN₂)</td>
+            <td style="padding:11px 16px;text-align:center;color:var(--text-primary);">Цахилгаан компрессор</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);background:rgba(31,107,94,.02);">
+            <td style="padding:11px 16px;color:var(--text-muted);">Температур</td>
+            <td style="padding:11px 16px;text-align:center;color:var(--text-primary);">−120°C / −140°C</td>
+            <td style="padding:11px 16px;text-align:center;color:var(--text-primary);">−110°C / −130°C</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:11px 16px;color:var(--text-muted);">Суурилуулах</td>
+            <td style="padding:11px 16px;text-align:center;color:var(--text-primary);">Тусгай агааржуулалт</td>
+            <td style="padding:11px 16px;text-align:center;color:#1450a0;font-weight:500;">Энгийн залгуур ✓</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);background:rgba(31,107,94,.02);">
+            <td style="padding:11px 16px;color:var(--text-muted);">Арчлах</td>
+            <td style="padding:11px 16px;text-align:center;color:var(--text-primary);">Азот нийлүүлэлт</td>
+            <td style="padding:11px 16px;text-align:center;color:#1450a0;font-weight:500;">Засвар багатай ✓</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:11px 16px;color:var(--text-muted);">Автоматжуулалт</td>
+            <td style="padding:11px 16px;text-align:center;color:var(--text-primary);">Windows интерфэйс</td>
+            <td style="padding:11px 16px;text-align:center;color:#1450a0;font-weight:500;">Бүрэн автомат ✓</td>
+          </tr>
+          <tr>
+            <td style="padding:11px 16px;color:var(--text-muted);">Эмчилгээний үр дүн</td>
+            <td style="padding:11px 16px;text-align:center;color:var(--accent);font-weight:500;">✓ Тэнцүү</td>
+            <td style="padding:11px 16px;text-align:center;color:var(--accent);font-weight:500;">✓ Тэнцүү</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+<div class="cta-bar">
+  <h3>Крио эмчилгээ туршихад бэлэн үү?</h3>
+  <p>Монголын анхны мэргэжлийн крио эмчилгээний өрөөнд тавтай морил</p>
+  <a href="index.html#contact" class="btn btn-primary">Цаг захиалах</a>
+  <a href="hub.html" class="btn btn-outline" style="margin-left:10px;">← Буцах</a>
+</div>
+<footer><p>© 2025 °CRYO Mongolia</p><p>CTN.FI Recovery Technologies · Cryo°CabinTM</p></footer>
 <script>
 document.querySelectorAll('.reveal').forEach(r=>
-  new IntersectionObserver(([e])=>e.isIntersecting&&r.classList.add('visible'),{threshold:.08}).observe(r)
+  new IntersectionObserver(([e])=>e.isIntersecting&&r.classList.add('visible'),{threshold:.1}).observe(r)
 );
 </script>
+<style>
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@media(max-width:900px){.hero-img-wrap{display:none}}
+</style>
 </body>
 </html>
