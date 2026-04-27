@@ -54,26 +54,26 @@
       <div class="wave-info"><h4>Ойрын инфра улаан (NIR) — 700–1100 нанометр</h4><p>Биеийн гүн рүү нэвтэрч булчин, мэдрэл, ясанд нөлөөлдөг. Эсийн засвар болон цусны эргэлтийг сайжруулдаг.</p></div>
     </div>
     <!-- Гэрлийн нэвтрэлтийн дүрслэл -->
-    <div style="margin-top:32px;border-radius:var(--r-xl);overflow:hidden;border:1.5px solid var(--border);background:linear-gradient(135deg,#fff,#fdf3f0);padding:36px 28px;">
+    <div style="margin-top:32px;border-radius:var(--r-xl);overflow:hidden;border:1.5px solid var(--border);background:linear-gradient(135deg,#eef7fc,#d4e8f5);padding:36px 28px;">
       <h4 style="font-family:var(--ff-display);font-size:18px;font-weight:600;color:var(--text-primary);margin-bottom:24px;text-align:center;">Биеийн давхаргад нэвтрэх гүн</h4>
       <svg viewBox="0 0 700 240" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
         <!-- Skin layers -->
         <defs>
           <linearGradient id="skinGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#f5e6d8"/>
-            <stop offset="100%" stop-color="#e8c8a8"/>
+            <stop offset="0%" stop-color="#f0f8fc"/>
+            <stop offset="100%" stop-color="#d4e8f0"/>
           </linearGradient>
           <linearGradient id="dermisGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#e8c8a8"/>
-            <stop offset="100%" stop-color="#c89878"/>
+            <stop offset="0%" stop-color="#d4e8f0"/>
+            <stop offset="100%" stop-color="#a8cce0"/>
           </linearGradient>
           <linearGradient id="muscleGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#c89878"/>
-            <stop offset="100%" stop-color="#a06850"/>
+            <stop offset="0%" stop-color="#a8cce0"/>
+            <stop offset="100%" stop-color="#6ba0c0"/>
           </linearGradient>
           <linearGradient id="boneGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#a06850"/>
-            <stop offset="100%" stop-color="#704030"/>
+            <stop offset="0%" stop-color="#6ba0c0"/>
+            <stop offset="100%" stop-color="#3a6a8a"/>
           </linearGradient>
           <linearGradient id="redLight" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stop-color="#e05252" stop-opacity=".6"/>
@@ -103,24 +103,24 @@
         <path d="M 320 20 L 280 195 L 520 195 L 480 20 Z" fill="url(#nirLight)" opacity=".7"/>
 
         <!-- Skin layer 1: epidermis -->
-        <rect x="40" y="40" width="620" height="40" fill="url(#skinGrad)" stroke="#d4a780" stroke-width=".5"/>
-        <text x="55" y="65" fill="#704030" font-size="11" font-family="sans-serif" font-weight="600">Эпидермис</text>
-        <text x="55" y="77" fill="#a06850" font-size="9" font-family="sans-serif">~ 0.1 мм</text>
+        <rect x="40" y="40" width="620" height="40" fill="url(#skinGrad)" stroke="#a8cce0" stroke-width=".5"/>
+        <text x="55" y="65" fill="#1a4a68" font-size="11" font-family="sans-serif" font-weight="600">Эпидермис</text>
+        <text x="55" y="77" fill="#3a6a8a" font-size="9" font-family="sans-serif">~ 0.1 мм</text>
 
         <!-- Skin layer 2: dermis -->
-        <rect x="40" y="80" width="620" height="50" fill="url(#dermisGrad)" stroke="#b88858" stroke-width=".5"/>
-        <text x="55" y="105" fill="#5a3020" font-size="11" font-family="sans-serif" font-weight="600">Дермис · Коллаген</text>
-        <text x="55" y="118" fill="#704030" font-size="9" font-family="sans-serif">1–4 мм · Улаан гэрэл (630–660 nm)</text>
+        <rect x="40" y="80" width="620" height="50" fill="url(#dermisGrad)" stroke="#6ba0c0" stroke-width=".5"/>
+        <text x="55" y="105" fill="#0d3a58" font-size="11" font-family="sans-serif" font-weight="600">Дермис · Коллаген</text>
+        <text x="55" y="118" fill="#1a4a68" font-size="9" font-family="sans-serif">1–4 мм · Улаан гэрэл (630–660 nm)</text>
 
         <!-- Layer 3: subcutaneous / muscle -->
-        <rect x="40" y="130" width="620" height="60" fill="url(#muscleGrad)" stroke="#805030" stroke-width=".5"/>
-        <text x="55" y="158" fill="#3a1f10" font-size="11" font-family="sans-serif" font-weight="600">Булчин · Эс · Цусны судас</text>
-        <text x="55" y="171" fill="#5a3020" font-size="9" font-family="sans-serif">5–40 мм · Ойрын инфра улаан (700–940 nm)</text>
+        <rect x="40" y="130" width="620" height="60" fill="url(#muscleGrad)" stroke="#4a7a98" stroke-width=".5"/>
+        <text x="55" y="158" fill="#0a2a48" font-size="11" font-family="sans-serif" font-weight="600">Булчин · Эс · Цусны судас</text>
+        <text x="55" y="171" fill="#0d3a58" font-size="9" font-family="sans-serif">5–40 мм · Ойрын инфра улаан (700–940 nm)</text>
 
         <!-- Layer 4: bone/deep -->
-        <rect x="40" y="190" width="620" height="40" fill="url(#boneGrad)" stroke="#502010" stroke-width=".5"/>
+        <rect x="40" y="190" width="620" height="40" fill="url(#boneGrad)" stroke="#1a4a68" stroke-width=".5"/>
         <text x="55" y="214" fill="#fff" font-size="11" font-family="sans-serif" font-weight="600">Гүн эд · Яс · Мэдрэл</text>
-        <text x="55" y="225" fill="#f0d8c8" font-size="9" font-family="sans-serif">40+ мм</text>
+        <text x="55" y="225" fill="#d4e8f0" font-size="9" font-family="sans-serif">40+ мм</text>
 
         <!-- Wavelength labels on right -->
         <g>
